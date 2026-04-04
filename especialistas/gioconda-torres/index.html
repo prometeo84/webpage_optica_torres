@@ -15,6 +15,7 @@
             <link href="css/owl.carousel.min.css" rel="stylesheet">
             <link href="css/owl.theme.default.min.css" rel="stylesheet">
             <link href="css/templatemo-medic-care.css" rel="stylesheet">
+            <link href="css/gioconda-page.css" rel="stylesheet">
           </head>
 
           <body id="top">
@@ -37,6 +38,7 @@
                       <li class="nav-item"><a class="nav-link" href="#timeline">Trayectoria</a></li>
                       <a class="navbar-brand d-none d-lg-block" href="#top">Dra. Gioconda Torres<strong class="d-block">Oftalmología</strong></a>
                       <li class="nav-item"><a class="nav-link" href="#reviews">Testimonios</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#procedures">Procedimientos</a></li>
                       <li class="nav-item"><a class="nav-link" href="#booking">Agendar</a></li>
                       <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                     </ul>
@@ -110,7 +112,62 @@
               </section>
 
               <section class="section-padding" id="reviews">
-                <div class="container"><div class="row"><div class="col-12"><h2 class="text-center mb-lg-5 mb-4">Testimonios</h2><div class="owl-carousel reviews-carousel"></div></div></div></div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <h2 class="text-center mb-lg-5 mb-4">Testimonios</h2>
+                      <div class="row g-3 justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-12">
+                          <div class="ratio ratio-16x9">
+                            <iframe data-lazy data-src="https://www.dailymotion.com/embed/video/xa3s212" src="about:blank" title="Testimonio 1" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                          <div class="ratio ratio-16x9">
+                            <iframe data-lazy data-src="https://www.dailymotion.com/embed/video/xa3s422" src="about:blank" title="Testimonio 2" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                          <div class="ratio ratio-16x9">
+                            <iframe data-lazy data-src="https://www.dailymotion.com/embed/video/xa3s7gc" src="about:blank" title="Testimonio 3" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                          <div class="ratio ratio-16x9">
+                            <iframe data-lazy data-src="https://www.dailymotion.com/embed/video/xa3s826" src="about:blank" title="Testimonio 4" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section-padding" id="procedures">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <h2 class="text-center mb-lg-5 mb-4">Procedimientos operatorios Dra. Gioconda Torres</h2>
+                      <div class="row g-3 justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-12">
+                          <div class="ratio ratio-16x9">
+                            <iframe data-lazy data-src="https://www.dailymotion.com/embed/video/xa44a8g" src="about:blank" title="Procedimiento 1" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                          <div class="ratio ratio-16x9">
+                            <iframe data-lazy data-src="https://www.dailymotion.com/embed/video/xa44a8k" src="about:blank" title="Procedimiento 2" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                          <div class="ratio ratio-16x9">
+                            <iframe data-lazy data-src="https://www.dailymotion.com/embed/video/xa44a8e" src="about:blank" title="Procedimiento 3" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </section>
 
               <section class="section-padding" id="booking">
@@ -146,18 +203,6 @@
             <script src="js/scrollspy.min.js"></script>
             <script src="js/custom.js"></script>
             <script src="js/gioconda-page.js" defer></script>
-
-            <script>
-            (function(){
-              function extractDailymotionId(src){ try{ if(!src) return null; var m = src.match(/dai\.ly\/([a-zA-Z0-9_-]+)/); if(m && m[1]) return m[1]; m = src.match(/video\/([^_?\/#!&]+)/i); if(m && m[1]) return m[1]; var parts = src.split('/'); var last = parts.pop() || parts.pop(); return last || null; }catch(e){return null;} }
-              function thumbnailForDailymotionId(id){ return id ? ('/especialistas/gioconda-torres/thumb.php?id=' + encodeURIComponent(id)) : ''; }
-              function makePlaceholderFromIframe(iframe){ var src = iframe.getAttribute('src'); var id = extractDailymotionId(src); var wrapper = document.createElement('div'); wrapper.className = 'ratio ratio-16x9 dailymotion-placeholder'; wrapper.setAttribute('data-src', src); var thumbUrl = thumbnailForDailymotionId(id); if(thumbUrl){ var img = document.createElement('img'); img.className = 'dailymotion-thumb img-fluid'; img.setAttribute('alt','Video thumbnail'); img.setAttribute('src', thumbUrl); wrapper.appendChild(img); } var btn = document.createElement('button'); btn.className = 'play-btn'; btn.setAttribute('aria-label','Play video'); btn.textContent = '▶'; wrapper.appendChild(btn); iframe.parentNode.replaceChild(wrapper, iframe); return wrapper; }
-              function initDailymotionPlaceholders(){ document.querySelectorAll('iframe[src*="dailymotion.com"]').forEach(function(iframe){ try{ if (iframe.hasAttribute && iframe.hasAttribute('data-force-embed')) return; makePlaceholderFromIframe(iframe);}catch(e){} }); document.querySelectorAll('.dailymotion-placeholder').forEach(function(div){ var src = div.getAttribute('data-src') || ''; var id = extractDailymotionId(src); if(id && !div.querySelector('img.dailymotion-thumb')){ var thumb = thumbnailForDailymotionId(id); if(thumb){ var img = document.createElement('img'); img.className = 'dailymotion-thumb img-fluid'; img.setAttribute('alt','Video thumbnail'); img.setAttribute('src', thumb); img.addEventListener('error', function(){ try{ img.style.display = 'none'; div.classList.add('dm-thumb-missing'); }catch(e){} }); div.insertBefore(img, div.firstChild); } } var btn = div.querySelector('.play-btn'); if(!btn){ btn = document.createElement('button'); btn.className = 'play-btn'; btn.setAttribute('aria-label','Play video'); btn.textContent = '▶'; div.appendChild(btn); } if(!btn.__dmBound){ btn.addEventListener('click', function(){ var src = div.getAttribute('data-src'); if(!src) return; var iframe = document.createElement('iframe'); iframe.setAttribute('frameborder','0'); iframe.setAttribute('allowfullscreen',''); iframe.setAttribute('allow','autoplay; encrypted-media'); iframe.src = src; div.innerHTML = ''; div.appendChild(iframe); }); btn.__dmBound = true; } }); }
-              function setCurrentYear(){ var el = document.getElementById('current-year'); if(el) el.textContent = new Date().getFullYear(); }
-              function setExperienceYears(){ var el = document.getElementById('experience-years'); if(!el) return; var start = new Date(2009,0,1); var today = new Date(); var years = today.getFullYear() - start.getFullYear(); var m = today.getMonth() - start.getMonth(); if (m < 0 || (m === 0 && today.getDate() < start.getDate())) years--; el.textContent = years; }
-              if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', function(){ initDailymotionPlaceholders(); setCurrentYear(); setExperienceYears(); }); } else { initDailymotionPlaceholders(); setCurrentYear(); setExperienceYears(); }
-            })();
-            </script>
           </body>
         </html>
 

@@ -27,7 +27,7 @@
     if (info.provider === "youtube")
       return "https://img.youtube.com/vi/" + info.id + "/hqdefault.jpg";
     if (info.provider === "dailymotion")
-      return "../thumb.php?id=" + encodeURIComponent(info.id);
+      return "thumb.php?id=" + encodeURIComponent(info.id);
     return "";
   }
 
@@ -66,7 +66,7 @@
           "https://www.dailymotion.com/embed/video/" + info.id + "?autoplay=1";
       if (!srcUrl) srcUrl = src;
       newIframe.src = srcUrl;
-      iframe.parentNode.replaceChild(newIframe, wrapper);
+      wrapper.parentNode.replaceChild(newIframe, wrapper);
     });
 
     return wrapper;
@@ -82,9 +82,20 @@
     });
   }
 
-  function setCurrentYear(selector) {
-    var el = document.querySelector(selector || ".current-year");
+  function setCurrentYear() {
+    var el = document.getElementById("current-year");
     if (el) el.textContent = new Date().getFullYear();
+  }
+
+  function setExperienceYears() {
+    var el = document.getElementById("experience-years");
+    if (!el) return;
+    var start = new Date(2009, 0, 1);
+    var today = new Date();
+    var years = today.getFullYear() - start.getFullYear();
+    var m = today.getMonth() - start.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < start.getDate())) years--;
+    el.textContent = years;
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -92,7 +103,10 @@
       initPlaceholders();
     } catch (e) {}
     try {
-      setCurrentYear(".current-year");
+      setCurrentYear();
+    } catch (e) {}
+    try {
+      setExperienceYears();
     } catch (e) {}
   });
 })();
