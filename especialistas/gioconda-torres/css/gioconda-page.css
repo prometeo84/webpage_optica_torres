@@ -19,6 +19,14 @@
   margin: 0 auto;
   display: block;
 }
+
+/* Reduce vertical gap between hero and about section on Gioconda page */
+.hero {
+  padding-bottom: 1.5rem; /* reduced */
+}
+.section-padding#about {
+  padding-top: 0.5rem; /* smaller top padding to bring sections closer */
+}
 /* Placeholder de vídeo – ocupa todo el contenedor ratio de Bootstrap */
 .video-placeholder {
   position: absolute;
