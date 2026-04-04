@@ -1,0 +1,12 @@
+/* Override para icono WhatsApp en header/contacto */
+.info-inline .fab.fa-whatsapp,
+.header .topbar .contact-info .whatsapp-link i,
+.whatsapp-link .fab.fa-whatsapp {
+  color: #ffffff !important;
+}
+
+/* Forzar también si se usa icono bootstrap */
+.info-inline .bi-whatsapp,
+.whatsapp-link .bi-whatsapp {
+  color: #ffffff !important;
+}

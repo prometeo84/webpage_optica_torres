@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="80" viewBox="0 0 400 80" role="img" aria-label="Óptica Torres logo">
+  <title>Óptica Torres</title>
+  <style>
+    .optica { fill: #e53935; font-family: 'Poppins', 'Raleway', 'Roboto', sans-serif; font-weight:700; font-size:36px; }
+    .torres { fill: #17b8a6; font-family: 'Poppins', 'Raleway', 'Roboto', sans-serif; font-weight:700; font-size:36px; }
+  </style>
+  <text x="0" y="50" class="optica">Óptica</text>
+  <text x="150" y="50" class="torres">Torres</text>
+</svg>
