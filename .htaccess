@@ -50,8 +50,9 @@ RewriteRule .* - [F]
   # Referrer policy
   Header always set Referrer-Policy "no-referrer-when-downgrade"
 
-  # Content Security Policy (básico, ajustar según recursos externos)
-  Header always set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' https: data:; frame-src 'self' https://www.dailymotion.com https://player.vimeo.com;"
+  # Content Security Policy ajustada: permite Google Fonts y dominios de Dailymotion
+  # Ajusta si añades más CDNs o widgets externos
+  Header always set Content-Security-Policy "default-src 'self' https: data:; script-src 'self' https: 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https:; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://*.dailymotion.com https://*.dmcdn.net https:; frame-src 'self' https://www.dailymotion.com https://geo.dailymotion.com https://player.vimeo.com; connect-src 'self' https:;"
 
   # Permissions Policy (antes Feature-Policy)
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
@@ -59,6 +60,20 @@ RewriteRule .* - [F]
   # X-Robots-Tag para evitar indexado accidental de directorios (opcional)
   Header set X-Robots-Tag "index, follow"
 </IfModule>
+
+###############################################################################
+# Quitar .html globalmente: redirección externa + reescritura interna
+###############################################################################
+
+# 1) Redirigir peticiones explícitas a archivos .html hacia la URL limpia
+RewriteCond %{THE_REQUEST} \s([^
+]+)\.html [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# 2) Si la URL solicitada no existe como archivo/dir, servir el .html correspondiente internamente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+?)/?$ $1.html [L]
 
 # Evitar enumeración de archivos por parte de Apache (algún hosting ignora Options)
 <IfModule mod_autoindex.c>
