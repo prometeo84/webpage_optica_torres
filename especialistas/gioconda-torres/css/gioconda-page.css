@@ -12,7 +12,6 @@
   background: #000;
 }
 
-/* Reduce hero photo size to ~50% for better layout */
 .hero .gioconda-photo {
   max-width: 50%;
   height: auto;
@@ -20,7 +19,6 @@
   display: block;
 }
 
-/* Reduce vertical gap between hero and about section on Gioconda page */
 .hero {
   padding-bottom: 0.5rem; /* espacio uniforme debajo del hero */
 }
@@ -37,6 +35,7 @@
     padding-bottom: 0.75rem;
   }
 }
+
 /* Placeholder de vídeo – ocupa todo el contenedor ratio de Bootstrap */
 .video-placeholder {
   position: absolute;
@@ -84,9 +83,8 @@
   }
 }
 
-/* Aumentar espacio entre 'Agende su cita' y el footer */
 #booking {
-  padding-bottom: 3.5rem; /* espacio extra bajo la sección de booking */
+  padding-bottom: 3.5rem;
 }
 
 @media (max-width: 767px) {
