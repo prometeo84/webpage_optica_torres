@@ -1,0 +1,71 @@
+# Seguridad global para el sitio
+# - Evita listado de directorios
+Options -Indexes
+
+# Evita que se muestren errores del servidor y el banner (si es soportado)
+ServerSignature Off
+
+# Forzar HTTPS (redirección 301)
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Limitar métodos HTTP permitidos
+# Permite solo GET, POST, HEAD
+<LimitExcept GET POST HEAD>
+  Require all denied
+</LimitExcept>
+
+# Evitar listado y acceso a archivos sensibles
+<FilesMatch "^(?:\.env|composer\.json|composer\.lock|package\.json|package-lock\.json|gulpfile\.js|webpack\.config\.js|\.git|\.gitignore|README\.md)$">
+  Require all denied
+</FilesMatch>
+
+# Bloquear acceso a directorios sensibles y archivos de configuración
+RedirectMatch 403 (?i)/\.git(/|$)
+RedirectMatch 403 (?i)/\.env(/|$)
+
+# Prevenir solicitudes TRACE/TRACK
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+
+# Evitar que archivos .php sean descargados por navegadores si hay exposición
+<FilesMatch "\.(php|phar)$">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+</FilesMatch>
+
+# Cabeceras de seguridad recomendadas
+<IfModule mod_headers.c>
+  # HSTS (solo si ya estás en HTTPS en producción; no fuerces en dev sin cert)
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+  # X-Frame-Options
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Evitar sniffing MIME
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Referrer policy
+  Header always set Referrer-Policy "no-referrer-when-downgrade"
+
+  # Content Security Policy (básico, ajustar según recursos externos)
+  Header always set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' https: data:; frame-src 'self' https://www.dailymotion.com https://player.vimeo.com;"
+
+  # Permissions Policy (antes Feature-Policy)
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # X-Robots-Tag para evitar indexado accidental de directorios (opcional)
+  Header set X-Robots-Tag "index, follow"
+</IfModule>
+
+# Evitar enumeración de archivos por parte de Apache (algún hosting ignora Options)
+<IfModule mod_autoindex.c>
+  IndexOptions -FancyIndexing -IconsAreLinks
+</IfModule>
+
+# Evitar acceso directo a archivos del sistema
+<Files ~ "^.*\.(bak|config|sql|psd|ini|log)$">
+  Require all denied
+</Files>
