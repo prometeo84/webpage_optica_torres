@@ -32,7 +32,10 @@
 }
 
 @media (max-width: 767px) {
-  .section-padding { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+  .section-padding {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
 }
 /* Placeholder de vídeo – ocupa todo el contenedor ratio de Bootstrap */
 .video-placeholder {
