@@ -74,13 +74,23 @@
   color: #247cff;
 }
 
-/* Aumentar espacio entre la sección de Procedimientos y Agende su cita */
 #procedures {
-  padding-bottom: 2.5rem; /* espacio adicional bajo Procedimientos */
+  padding-bottom: 2.5rem;
 }
 
 @media (max-width: 767px) {
   #procedures {
     padding-bottom: 2rem;
+  }
+}
+
+/* Aumentar espacio entre 'Agende su cita' y el footer */
+#booking {
+  padding-bottom: 3.5rem; /* espacio extra bajo la sección de booking */
+}
+
+@media (max-width: 767px) {
+  #booking {
+    padding-bottom: 3rem;
   }
 }
