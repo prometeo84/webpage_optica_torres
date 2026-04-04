@@ -5,9 +5,11 @@ Options -Indexes
 # Evita que se muestren errores del servidor y el banner (si es soportado)
 ServerSignature Off
 
-# Forzar HTTPS (redirección 301)
+# Forzar HTTPS (redirección 301) — excepto en entornos locales (localhost / 127.0.0.1)
 RewriteEngine On
+# Solo redirigir a HTTPS si no es localhost o 127.0.0.1
 RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:\d+)?$ [NC]
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Limitar métodos HTTP permitidos
@@ -38,8 +40,10 @@ RewriteRule .* - [F]
 
 # Cabeceras de seguridad recomendadas
 <IfModule mod_headers.c>
-  # HSTS (solo si ya estás en HTTPS en producción; no fuerces en dev sin cert)
-  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  # HSTS: aplicar solo cuando la conexión es HTTPS y no estamos en localhost
+  <If "%{HTTPS} == 'on' && %{HTTP_HOST} !~ /^(localhost|127\.0\.0\.1)(:\d+)?$/">
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  </If>
 
   # X-Frame-Options
   Header always set X-Frame-Options "SAMEORIGIN"
