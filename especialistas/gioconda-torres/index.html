@@ -36,7 +36,6 @@
                       <li class="nav-item active"><a class="nav-link" href="#hero">Inicio</a></li>
                       <li class="nav-item"><a class="nav-link" href="#about">Sobre mí</a></li>
                       <li class="nav-item"><a class="nav-link" href="#timeline">Trayectoria</a></li>
-                      <a class="navbar-brand d-none d-lg-block" href="#top">Dra. Gioconda Torres<strong class="d-block">Oftalmología</strong></a>
                       <li class="nav-item"><a class="nav-link" href="#reviews">Testimonios</a></li>
                       <li class="nav-item"><a class="nav-link" href="#procedures">Procedimientos</a></li>
                       <li class="nav-item"><a class="nav-link" href="#booking">Agendar</a></li>
@@ -55,21 +54,6 @@
                           <div class="carousel-item active">
                             <img src="/assets/img/gioconda/gallery/gioconda.jpg" class="img-fluid" alt="Dra. Gioconda Torres">
                           </div>
-                        </div>
-                      </div>
-
-                      <div class="heroText d-flex flex-column justify-content-center">
-                        <h1 class="mt-auto mb-2">Salud visual
-                          <div class="animated-info">
-                            <span class="animated-item">visión</span>
-                            <span class="animated-item">cuidado</span>
-                            <span class="animated-item">experiencia</span>
-                          </div>
-                        </h1>
-                        <p class="mb-4">Especialista en oftalmología con experiencia en cirugía y manejo de patologías retinianas.</p>
-                        <div class="heroLinks d-flex flex-wrap align-items-center">
-                          <a class="custom-link me-4" href="#about" data-hover="Conocer más">Conocer más</a>
-                          <p class="contact-phone mb-0"><i class="bi-phone"></i> 098 740 3851</p>
                         </div>
                       </div>
                     </div>
@@ -171,17 +155,39 @@
               </section>
 
               <section class="section-padding" id="booking">
-                <div class="container"><div class="row"><div class="col-lg-8 col-12 mx-auto"><div class="booking-form">
-                  <h2 class="text-center mb-lg-3 mb-2">Agende su cita</h2>
-                  <form role="form" action="#booking" method="post"><div class="row">
-                    <div class="col-lg-6 col-12"><input type="text" name="name" id="name" class="form-control" placeholder="Nombre completo" required></div>
-                    <div class="col-lg-6 col-12"><input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Correo electrónico" required></div>
-                    <div class="col-lg-6 col-12"><input type="telephone" name="phone" id="phone" class="form-control" placeholder="Teléfono"></div>
-                    <div class="col-lg-6 col-12"><input type="date" name="date" id="date" value="" class="form-control"></div>
-                    <div class="col-12"><textarea class="form-control" rows="5" id="message" name="message" placeholder="Mensaje adicional"></textarea></div>
-                    <div class="col-12 text-center mt-4"><button type="submit" class="btn btn-primary">Enviar</button></div>
-                  </div></form>
-                </div></div></div></div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-8 col-12 mx-auto">
+                      <div class="booking-form">
+                        <h2 class="text-center mb-lg-3 mb-2">Agende su cita</h2>
+
+                        <!-- WhatsApp quick links (copiado de la página principal) -->
+                        <div class="text-center mb-3">
+                          <a href="https://wa.me/593987403851" target="_blank" rel="noopener noreferrer" class="btn btn-success me-2 whatsapp-link">
+                            <i class="bi bi-whatsapp"></i>
+                            <span class="ms-2">098 740 3851</span>
+                          </a>
+                          <a href="https://wa.me/593958707479" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success whatsapp-link">
+                            <i class="bi bi-whatsapp"></i>
+                            <span class="ms-2">095 870 7479</span>
+                          </a>
+                        </div>
+
+                        <form role="form" action="#booking" method="post">
+                          <div class="row">
+                            <div class="col-lg-6 col-12 mb-3"><input type="text" name="name" id="name" class="form-control" placeholder="Nombre completo" required></div>
+                            <div class="col-lg-6 col-12 mb-3"><input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Correo electrónico" required></div>
+                            <div class="col-lg-6 col-12 mb-3"><input type="telephone" name="phone" id="phone" class="form-control" placeholder="Teléfono"></div>
+                            <div class="col-lg-6 col-12 mb-3"><input type="date" name="date" id="date" value="" class="form-control"></div>
+                            <div class="col-12 mb-3"><textarea class="form-control" rows="5" id="message" name="message" placeholder="Mensaje adicional"></textarea></div>
+                            <div class="col-12 text-center mt-2"><button type="submit" class="btn btn-primary">Enviar</button></div>
+                          </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </section>
 
             </main>
