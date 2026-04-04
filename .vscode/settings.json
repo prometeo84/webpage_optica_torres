@@ -1,0 +1,8 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "/^powershell -NoProfile -Command \"try \\{ \\$r = Invoke-WebRequest 'http://localhost/especialistas/gioconda-torres/' -UseBasicParsing -TimeoutSec 15 -ErrorAction Stop; Write-Output \\\\\"HTTP_STATUS: \\$\\(\\$r\\.StatusCode\\) \\$\\(\\$r\\.StatusDescription\\)\\\\\"; Write-Output '---Headers---'; \\$r\\.Headers\\.GetEnumerator\\(\\) \\| ForEach-Object \\{ Write-Output \\\\\"\\$\\(\\$_\\.Name\\): \\$\\(\\$_\\.Value\\)\\\\\" \\}; Write-Output '---Body \\(first 1200 chars\\)---'; if \\(\\$r\\.Content\\.Length -gt 1200\\) \\{ \\$r\\.Content\\.Substring\\(0,1200\\) \\} else \\{ \\$r\\.Content \\} \\} catch \\{ Write-Output \\\\\"ERROR: \\$\\(\\$_\\.Exception\\.Message\\)\\\\\"; if \\(\\$_\\.Exception\\.Response\\) \\{ Write-Output \\\\\"ResponseStatus: \\$\\(\\$_\\.Exception\\.Response\\.StatusCode\\.Value__\\)\\\\\" \\} \\}\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}

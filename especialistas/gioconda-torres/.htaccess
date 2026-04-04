@@ -1,4 +1,4 @@
-# Evita MultiViews que pueden interferir con rutas limpias
+# Evita MultiViews que pueden interferir con rutas limpias.
 Options -MultiViews
 
 # Servir index.html por defecto cuando se solicita la carpeta

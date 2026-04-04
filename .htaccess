@@ -1,5 +1,5 @@
 # Seguridad global para el sitio
-# - Evita listado de directorios
+# Evita listado de directorios
 Options -Indexes
 
 # Evita que se muestren errores del servidor y el banner (si es soportado)
