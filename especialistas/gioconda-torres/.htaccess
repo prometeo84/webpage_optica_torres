@@ -1,0 +1,22 @@
+# Evita MultiViews que pueden interferir con rutas limpias
+Options -MultiViews
+
+# Servir index.html por defecto cuando se solicita la carpeta
+DirectoryIndex index.html
+
+# Habilita motor de reescritura
+RewriteEngine On
+
+# Redirige peticiones que incluyen "index.html" a la versión limpia sin el archivo
+# Ej: /especialistas/gioconda-torres/index.html -> /especialistas/gioconda-torres/
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
+
+# Si el recurso solicitado es un archivo o directorio existente, servirlo normalmente
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Evitar que la URL quede con doble slash al final
+RewriteCond %{REQUEST_URI} ^(.+)//$
+RewriteRule .* %1 [R=301,L]
