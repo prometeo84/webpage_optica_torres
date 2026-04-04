@@ -22,10 +22,16 @@
 
 /* Reduce vertical gap between hero and about section on Gioconda page */
 .hero {
-  padding-bottom: 1.5rem; /* reduced */
+  padding-bottom: 0.25rem; /* mucho más reducido */
 }
 .section-padding#about {
-  padding-top: 0.5rem; /* smaller top padding to bring sections closer */
+  padding-top: 0; /* eliminar padding superior */
+  margin-top: -2rem; /* tirar la sección hacia arriba */
+}
+
+@media (max-width: 767px) {
+  /* en pantallas pequeñas, evitar solapamiento: menos margen negativo */
+  .section-padding#about { margin-top: -0.5rem; }
 }
 /* Placeholder de vídeo – ocupa todo el contenedor ratio de Bootstrap */
 .video-placeholder {
