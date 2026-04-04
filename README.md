@@ -30,5 +30,3 @@ Notas para desarrolladores
 
 - Las miniaturas de Dailymotion las sirve `especialistas/gioconda-torres/thumb.php` para evitar problemas CORS.
 - Los iframes de vídeo usan `data-lazy` + `data-src` y se reemplazan por un placeholder que carga el iframe solo al hacer clic.
-
-Si quieres que deje los cambios listos para producción (minificar CSS/JS, pruebas cross-browser, o un deploy), dime y lo preparo.
