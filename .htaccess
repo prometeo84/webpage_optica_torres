@@ -66,7 +66,6 @@ RewriteRule .* - [F]
 ###############################################################################
 
 # 1) Redirigir peticiones explícitas a archivos .html hacia la URL limpia
-]+)\.html [NC]
 RewriteCond %{THE_REQUEST} \s([^\s]+)\.html [NC]
 RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 
