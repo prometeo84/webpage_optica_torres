@@ -73,3 +73,14 @@
 .video-placeholder:hover .vp-play {
   color: #247cff;
 }
+
+/* Aumentar espacio entre la sección de Procedimientos y Agende su cita */
+#procedures {
+  padding-bottom: 2.5rem; /* espacio adicional bajo Procedimientos */
+}
+
+@media (max-width: 767px) {
+  #procedures {
+    padding-bottom: 2rem;
+  }
+}
