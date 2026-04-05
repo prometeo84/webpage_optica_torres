@@ -372,6 +372,16 @@ h6 {
   color: var(--contrast-color);
 }
 
+/* Services layout: keep titles centered, body text left-aligned for readability */
+.services .section-title h2,
+.services .service-item h3 {
+  text-align: center;
+}
+.services .section-title p,
+.services .service-item p {
+  text-align: left;
+}
+
 /* Increase touch target and spacing on small screens */
 @media (max-width: 575px) {
   .header .topbar .contact-info .whatsapp-link {
