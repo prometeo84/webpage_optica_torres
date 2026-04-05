@@ -416,6 +416,11 @@ h6 {
   text-justify: inter-word;
 }
 
+/* Utility: left-align text blocks */
+.text-left {
+  text-align: left;
+}
+
 .header .logo img {
   max-height: 36px;
   margin-right: 8px;
