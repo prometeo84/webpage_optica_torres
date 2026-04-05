@@ -27,16 +27,4 @@ jobs:
 
       - name: Fail on W3C errors
         run: |
-          python - <<'PY'
-import json, sys
-report = json.load(open('tools/site_checks_report.json', encoding='utf-8'))
-errors = 0
-for page, data in report.get('pages', {}).items():
-    w3c = data.get('w3c') or {}
-    e = w3c.get('errors') or 0
-    errors += e
-if errors > 0:
-    print(f'W3C errors found: {errors}')
-    sys.exit(1)
-print('No W3C errors found')
-PY
+          python tools/check_w3c_exit.py
