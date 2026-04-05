@@ -99,6 +99,7 @@ Sí. Añadir un badge discreto con enlace al validador aporta credibilidad técn
 ---
 
 ## 📌 Estado actual y acciones realizadas ahora
+
 ## 📌 Estado actual y cambios recientes
 
 Actualizado: 2026-04-05
@@ -110,12 +111,5 @@ Actualizado: 2026-04-05
 - El footer principal (`index.html`) fue actualizado: el correo se convirtió en enlace `mailto`.
 - En la sección `Especialistas` la tarjeta de la Dra. Gioconda ahora enlaza a `especialistas/gioconda-torres/index.html`.
 - Todos los cambios del sitio fueron commiteados y pusheados al repositorio (`origin/main`).
-
----
-
-Si quieres que:
-
-- Añada el badge W3C al footer y prepare una tarea CI para revalidar automáticamente (sí/no).
-- Genere una configuración Nginx completa para tu servidor Windows/IIS o Linux (elige).
 
 — Equipo de mantenimiento — Óptica Torres
