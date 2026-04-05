@@ -93,13 +93,35 @@
   }
 }
 
-/* Ensure scroll-top on specialist page matches main site's accent and contrast */
+/* Ensure scroll-top on specialist page matches main site's shape, position and colors */
 .scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
   background-color: var(--accent-color, #17b8a6);
-  color: var(--contrast-color, #ffffff);
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s;
 }
 .scroll-top i {
+  font-size: 24px;
   color: var(--contrast-color, #ffffff);
+  line-height: 0;
+}
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Make the experience number use the site's accent color */
