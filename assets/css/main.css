@@ -400,6 +400,12 @@ h6 {
   line-height: 1;
 }
 
+/* Utility: text justification for long content blocks */
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .header .logo img {
   max-height: 36px;
   margin-right: 8px;
