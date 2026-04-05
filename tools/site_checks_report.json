@@ -1,0 +1,34 @@
+{
+  "pages": {
+    "especialistas\\gioconda-torres\\index.html": {
+      "w3c": {
+        "total_messages": 0,
+        "errors": 0,
+        "warnings": 0,
+        "sample": []
+      },
+      "images_missing_alt": [],
+      "links_blank_no_rel": []
+    },
+    "index.html": {
+      "w3c": {
+        "total_messages": 0,
+        "errors": 0,
+        "warnings": 0,
+        "sample": []
+      },
+      "images_missing_alt": [],
+      "links_blank_no_rel": []
+    },
+    "starter-page.html": {
+      "w3c": {
+        "total_messages": 0,
+        "errors": 0,
+        "warnings": 0,
+        "sample": []
+      },
+      "images_missing_alt": [],
+      "links_blank_no_rel": []
+    }
+  }
+}
