@@ -1,4 +1,12 @@
 User-agent: *
+# Allow full crawl of public site
 Allow: /
 
-Sitemap: /sitemap.xml
+# Block common admin or sensitive paths
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /vendor/
+
+# Sitemap (use absolute URL to be explicit for crawlers)
+Sitemap: https://opticatorres.med.ec/sitemap.xml
