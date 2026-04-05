@@ -223,6 +223,15 @@ h6 {
   object-fit: cover;
   display: block;
 }
+
+/* Gallery images used on the homepage: unified sizing and neutral background */
+.gallery-img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #f7f7f7;
+  display: block;
+}
 .gioconda-page .videos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
