@@ -1463,6 +1463,16 @@ section,
   color: var(--contrast-color);
 }
 
+/* Specific override: left-align content for service items tagged with .text-left
+   More specific than the generic .services .service-item selector to ensure lists
+   and paragraphs inside are left-aligned. */
+.services .service-item.text-left,
+.services .service-item.text-left p,
+.services .service-item.text-left ul,
+.services .service-item.text-left li {
+  text-align: left;
+}
+
 /*--------------------------------------------------------------
 # Appointment Section
 --------------------------------------------------------------*/
