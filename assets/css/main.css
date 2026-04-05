@@ -232,6 +232,15 @@ h6 {
   background: #f7f7f7;
   display: block;
 }
+/* Asegura que las imágenes dentro de las icon-box llenen
+   el contenedor de proporción y mantengan dimensiones iguales */
+.icon-box .ratio img,
+.icon-box .ratio .img-fluid {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
 .gioconda-page .videos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -301,6 +310,40 @@ h6 {
 .gioconda-page .video-wrap .ratio::before {
   /* disable Bootstrap's intrinsic padding trick inside our forced box */
   display: none !important;
+}
+
+/* Generic video placeholder used by main site when replacing iframes[data-lazy] */
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+  background: #000;
+}
+.video-placeholder .vp-thumb {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.video-placeholder .vp-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.25rem;
+  line-height: 1;
+  color: var(--contrast-color, #fff);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+.video-placeholder:hover .vp-play {
+  color: var(--accent-color);
 }
 
 /* Ensure text contrast for topbar links (override if needed) */
@@ -421,8 +464,20 @@ h6 {
   text-align: left;
 }
 
+.header .logo {
+  /* permitir que el logo ocupe el espacio disponible a la izquierda del nav */
+  flex: 1 1 60%;
+  max-width: 60%;
+}
+.header .navmenu {
+  /* evitar que el menú se contraiga cuando el logo crece */
+  flex: 0 0 auto;
+}
 .header .logo img {
-  max-height: 36px;
+  /* hacer que la imagen del logo ocupe todo el ancho de .logo en desktop */
+  width: 100% !important;
+  height: auto !important;
+  max-height: none;
   margin-right: 8px;
 }
 
@@ -548,6 +603,18 @@ h6 {
 
   .header .navmenu {
     order: 3;
+  }
+}
+
+/* Responsive: en móviles reducir el logo para no ocupar demasiado espacio */
+@media (max-width: 575.98px) {
+  .header .logo {
+    flex: 0 0 auto;
+    max-width: none;
+  }
+  .header .logo img {
+    max-height: 36px;
+    width: auto !important;
   }
 }
 
