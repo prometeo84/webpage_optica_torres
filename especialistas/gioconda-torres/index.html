@@ -218,6 +218,11 @@
               </a>
             </div>
 
+            <!-- Scroll Top button -->
+            <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="position:fixed;right:1rem;bottom:1rem;width:44px;height:44px;border-radius:50%;background:#0d6efd;color:#fff;z-index:9999;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;">
+              <i class="bi bi-arrow-up-short" aria-hidden="true"></i>
+            </a>
+
             <!-- SCRIPTS -->
             <script src="js/jquery.min.js"></script>
             <script src="js/bootstrap.bundle.min.js"></script>
@@ -225,6 +230,20 @@
             <script src="js/scrollspy.min.js"></script>
             <script src="js/custom.js"></script>
             <script src="js/gioconda-page.js" defer></script>
+            <script>
+              (function(){
+                function init(){
+                  var btn = document.getElementById('scroll-top');
+                  if(!btn) return;
+                  function show(){ btn.style.opacity='1'; btn.style.visibility='visible'; }
+                  function hide(){ btn.style.opacity='0'; btn.style.visibility='hidden'; }
+                  window.addEventListener('scroll', function(){ if(window.scrollY>120) show(); else hide(); }, {passive:true});
+                  btn.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
+                  if(window.scrollY>120) show(); else hide();
+                }
+                if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init); else init();
+              })();
+            </script>
           </body>
         </html>
 
