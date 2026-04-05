@@ -5,8 +5,9 @@
     "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Poppins", sans-serif;
-  --nav-font: "Raleway", sans-serif;
+  /* Use a single unified font across the site */
+  --heading-font: var(--default-font);
+  --nav-font: var(--default-font);
 
   /* Palette */
   --primary: #17b8a6; /* Verde protagonista */
