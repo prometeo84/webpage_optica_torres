@@ -89,17 +89,6 @@ location = /especialistas/gioconda-torres/thumb.php {
 
 ---
 
-## 📸 Badge W3C — ¿recomendado?
-
-Sí. Añadir un badge discreto con enlace al validador aporta credibilidad técnica. Recomendación práctica:
-
-- Colocar en footer o en página "Avisos legales".
-- Mantener el badge como enlace al validador o, mejor, a un resultado de validación exportado.
-
----
-
-## 📌 Estado actual y acciones realizadas ahora
-
 ## 📌 Estado actual y cambios recientes
 
 Actualizado: 2026-04-05
