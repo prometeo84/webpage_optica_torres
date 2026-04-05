@@ -9,7 +9,7 @@
   padding: 0;
   overflow: hidden;
   display: block;
-  background: #000;
+  background: var(--gioconda-media-bg, #000);
 }
 
 .hero .gioconda-photo {
@@ -64,13 +64,13 @@
   transform: translate(-50%, -50%);
   font-size: 4rem;
   line-height: 1;
-  color: #fff;
+  color: var(--contrast-color, #fff);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
   pointer-events: none;
 }
 
 .video-placeholder:hover .vp-play {
-  color: #247cff;
+  color: var(--accent-color, #247cff);
 }
 
 #procedures {
