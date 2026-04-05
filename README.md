@@ -166,7 +166,7 @@ Aquí tienes un árbol visual con los archivos y carpetas que deberías subir al
 ```
 
 Notas:
+
 - Si `thumb.php` está activado, configura la caché fuera del webroot (p.ej. `/var/cache/thumbs` o `C:\laragon\thumb_cache`) y no subas esa carpeta al repo ni al hosting público.
 - Ajusta permisos de `assets/img/` y de la carpeta de caché para que el proceso web pueda leer/escribir según sea necesario.
 - Antes de apuntar el dominio a producción: probar en staging con HTTPS y validar sitemap/robots.
-
