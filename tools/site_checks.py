@@ -5,11 +5,11 @@ Simple site checks: runs W3C validator for all HTML files and scans for
 - links opening in new tab without rel
 Outputs JSON report to stdout and writes report to tools/site_checks_report.json
 """
+
 import json
-import os
 import re
-import sys
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,7 +25,12 @@ for f in sorted(set(html_files)):
     page = {"w3c": None, "images_missing_alt": [], "links_blank_no_rel": []}
     # Run existing validator script
     try:
-        proc = subprocess.run([sys.executable, str(TOOLS / "validate_html_w3c.py"), str(f)], capture_output=True, text=True, timeout=60)
+        proc = subprocess.run(
+            [sys.executable, str(TOOLS / "validate_html_w3c.py"), str(f)],
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
         if proc.returncode == 0:
             page["w3c"] = json.loads(proc.stdout)
         else:
@@ -51,7 +56,9 @@ for f in sorted(set(html_files)):
     # links target _blank without rel
     for m in re.finditer(r"<a\b[^>]*target=[\"']?_blank[\"']?[^>]*>", text, flags=re.I):
         tag = m.group(0)
-        if not re.search(r'\brel="[^"]*noopener[^"]*"', tag, flags=re.I) and not re.search(r"\brel='[^']*noopener[^']*'", tag, flags=re.I):
+        if not re.search(
+            r'\brel="[^"]*noopener[^"]*"', tag, flags=re.I
+        ) and not re.search(r"\brel='[^']*noopener[^']*'", tag, flags=re.I):
             hrefm = re.search(r'href="([^"]+)"', tag)
             href = hrefm.group(1) if hrefm else None
             page["links_blank_no_rel"].append({"tag": tag, "href": href})

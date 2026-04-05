@@ -6,54 +6,59 @@
 
 ## ✅ Resumen ejecutivo (lo esencial)
 
-- Se añadieron etiquetas `rel="canonical"` y se actualizó `sitemap.xml` para URLs canónicas.  
-- `robots.txt` actualizado y apunta a la sitemap absoluta.  
-- Validación W3C: todas las páginas principales escaneadas pasan con 0 errores/warnings (ver `tools/site_checks_report.json`).  
-- Proxy de miniaturas seguro: `especialistas/gioconda-torres/thumb.php` con caché, ETag, conversión WebP y rate‑limit.  
+- Se añadieron etiquetas `rel="canonical"` y se actualizó `sitemap.xml` para URLs canónicas.
+- `robots.txt` actualizado y apunta a la sitemap absoluta.
+- Validación W3C: todas las páginas principales escaneadas pasan con 0 errores/warnings (ver `tools/site_checks_report.json`).
+- Proxy de miniaturas seguro: `especialistas/gioconda-torres/thumb.php` con caché, ETag, conversión WebP y rate‑limit.
 - Consolidación CSS: movimiento de estilos inline a `assets/css/main.css` (clase `.gallery-img`).
 
 ---
 
 ## 📌 Cambios técnicos (detallado)
 
-1) SEO & metadata
-- `index.html` y páginas clave ahora incluyen `link rel="canonical"`.  
-- `sitemap.xml` revisado y normalizado (entradas canónicas, `lastmod` actualizado).  
+1. SEO & metadata
+
+- `index.html` y páginas clave ahora incluyen `link rel="canonical"`.
+- `sitemap.xml` revisado y normalizado (entradas canónicas, `lastmod` actualizado).
 - `robots.txt` actualizado para bloquear paths administrativos y declarar sitemap absoluto.
 
-2) Accesibilidad y calidad de código
-- Correcciones para pasar validación W3C; utilidades: `tools/validate_html_w3c.py`, `tools/site_checks.py` y `tools/normalize_html.py`.  
+2. Accesibilidad y calidad de código
+
+- Correcciones para pasar validación W3C; utilidades: `tools/validate_html_w3c.py`, `tools/site_checks.py` y `tools/normalize_html.py`.
 - Se eliminaron saltos de línea excesivos y se validaron comentarios HTML.
 
-3) Rendimiento y media
-- Galería: clases CSS (`.gallery-img`) para tamaño uniforme y `object-fit:contain`.  
-- Proxy de miniaturas (`thumb.php`):
-	- Caché en disco (preferente fuera del webroot), metadatos JSON y protección `.htaccess` si está dentro del webroot.  
-	- ETag + 304 support, TTL configurable (por defecto 1 día).  
-	- Conversión a WebP (Imagick si disponible, GD como fallback).  
-	- Rate‑limit por IP: Redis si está instalado; fallback a contador en filesystem.  
+3. Rendimiento y media
 
-4) Seguridad y editor
-- Stubs para `Redis` e `Imagick` en `stubs/` para evitar advertencias del editor (Intelephense).  
+- Galería: clases CSS (`.gallery-img`) para tamaño uniforme y `object-fit:contain`.
+- Proxy de miniaturas (`thumb.php`):
+  - Caché en disco (preferente fuera del webroot), metadatos JSON y protección `.htaccess` si está dentro del webroot.
+  - ETag + 304 support, TTL configurable (por defecto 1 día).
+  - Conversión a WebP (Imagick si disponible, GD como fallback).
+  - Rate‑limit por IP: Redis si está instalado; fallback a contador en filesystem.
+
+4. Seguridad y editor
+
+- Stubs para `Redis` e `Imagick` en `stubs/` para evitar advertencias del editor (Intelephense).
 - `.vscode/settings.json` actualizado para tratar `sitemap.xml` como XML.
 
 ---
 
 ## 🧰 Scripts incluidos
 
-- `tools/validate_html_w3c.py <file>` — usa el validador W3C y devuelve JSON.  
-- `tools/site_checks.py` — corre la validación en todos los HTML y crea `tools/site_checks_report.json`.  
+- `tools/validate_html_w3c.py <file>` — usa el validador W3C y devuelve JSON.
+- `tools/site_checks.py` — corre la validación en todos los HTML y crea `tools/site_checks_report.json`.
 - `tools/normalize_html.py` — valida comentarios y colapsa saltos de línea redundantes.
 
 ---
 
 ## ⚙️ Recomendaciones de despliegue
 
-- Caché fuera del webroot (recomendado): crear `C:\laragon\thumb_cache` y dar permisos al usuario del servidor web.  
-- Imagick: instalar la extensión para mejor conversión WebP.  
+- Caché fuera del webroot (recomendado): crear `C:\laragon\thumb_cache` y dar permisos al usuario del servidor web.
+- Imagick: instalar la extensión para mejor conversión WebP.
 - Redis: instalar/activar si quieres rate‑limit robusto y altamente eficiente.
 
 Ejemplo (PowerShell) para crear caché fuera del webroot:
+
 ```powershell
 New-Item -ItemType Directory -Path C:\laragon\thumb_cache -Force
 icacls C:\laragon\thumb_cache /grant "IIS_IUSRS:(OI)(CI)M" /T
@@ -64,11 +69,13 @@ icacls C:\laragon\thumb_cache /grant "IIS_IUSRS:(OI)(CI)M" /T
 ## 🛡️ Edge rate limiting (Nginx + Cloudflare)
 
 - Nginx (config global en `http`):
+
 ```nginx
 limit_req_zone $binary_remote_addr zone=thumb_zone:10m rate=2r/s;
 ```
 
 - Location recomendado para `thumb.php`:
+
 ```nginx
 location = /especialistas/gioconda-torres/thumb.php {
 		limit_req zone=thumb_zone burst=20 nodelay;
@@ -85,20 +92,22 @@ location = /especialistas/gioconda-torres/thumb.php {
 ## 📸 Badge W3C — ¿recomendado?
 
 Sí. Añadir un badge discreto con enlace al validador aporta credibilidad técnica. Recomendación práctica:
-- Colocar en footer o en página "Avisos legales".  
-- Mantener el badge como enlace al validador o, mejor, a un resultado de validación exportado.  
+
+- Colocar en footer o en página "Avisos legales".
+- Mantener el badge como enlace al validador o, mejor, a un resultado de validación exportado.
 
 ---
 
 ## 📌 Estado actual y acciones realizadas ahora
 
-- Ejecuté `tools/site_checks.py` → `tools/site_checks_report.json` refleja 0 errores/warnings en las páginas principales.  
-- README actualizado con este detalle.  
+- Ejecuté `tools/site_checks.py` → `tools/site_checks_report.json` refleja 0 errores/warnings en las páginas principales.
+- README actualizado con este detalle.
 
 ---
 
 Si quieres que:
-- Añada el badge W3C al footer y prepare una tarea CI para revalidar automáticamente (sí/no).  
-- Genere una configuración Nginx completa para tu servidor Windows/IIS o Linux (elige).  
+
+- Añada el badge W3C al footer y prepare una tarea CI para revalidar automáticamente (sí/no).
+- Genere una configuración Nginx completa para tu servidor Windows/IIS o Linux (elige).
 
 — Equipo de mantenimiento — Óptica Torres

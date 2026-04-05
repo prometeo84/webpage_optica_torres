@@ -405,6 +405,19 @@ h6 {
   margin-right: 8px;
 }
 
+/* Badges used in footer (W3C / CI) */
+.site-badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+.site-badges img {
+  height: 26px;
+  display: inline-block;
+}
+
 .header .logo h1 {
   font-size: 30px;
   margin: 0;
