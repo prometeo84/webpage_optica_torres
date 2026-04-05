@@ -48,6 +48,7 @@ if(!is_dir($CACHE_DIR)){
 $cache_key = sha1($remote);
 $cache_file = $CACHE_DIR . '/' . $cache_key . '.bin';
 $meta_file  = $CACHE_DIR . '/' . $cache_key . '.json';
+$webp_file = $CACHE_DIR . '/' . $cache_key . '.webp';
 
 // Helper: send cached file with headers
 function send_cached($meta, $cache_file){
@@ -66,6 +67,46 @@ function send_cached($meta, $cache_file){
 if(file_exists($cache_file) && file_exists($meta_file)){
     $meta = json_decode(file_get_contents($meta_file), true);
     $age = time() - ($meta['fetched_at'] ?? 0);
+    // Rate limit check per IP
+    $client_ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $RATE_LIMIT = 120; // requests
+    $RATE_WINDOW = 60; // seconds
+    $rl_ok = true;
+    // Try Redis-based rate limiting if available
+    if(extension_loaded('redis')){
+        try{
+            $r = new Redis();
+            $r->connect('127.0.0.1');
+            $rl_key = 'rl:thumb:' . $client_ip;
+            $count = $r->incr($rl_key);
+            if($count === 1) $r->expire($rl_key, $RATE_WINDOW);
+            if($count > $RATE_LIMIT) $rl_ok = false;
+        } catch(Exception $e){
+            $rl_ok = true; // if redis unavailable, fall back
+        }
+    } else {
+        // Simple filesystem window counter (fallback)
+        $rl_file = $CACHE_DIR . '/rl_' . preg_replace('/[^a-zA-Z0-9_.-]/','_', $client_ip) . '.json';
+        $now = time();
+        $data = ['count'=>0,'ts'=>$now];
+        if(file_exists($rl_file)){
+            $d = json_decode(file_get_contents($rl_file), true);
+            if($d) $data = $d;
+        }
+        if($now - $data['ts'] > $RATE_WINDOW){
+            $data = ['count'=>1,'ts'=>$now];
+        } else {
+            $data['count'] = ($data['count'] ?? 0) + 1;
+        }
+        file_put_contents($rl_file, json_encode($data));
+        if($data['count'] > $RATE_LIMIT) $rl_ok = false;
+    }
+    if(!$rl_ok){
+        header('HTTP/1.1 429 Too Many Requests');
+        header('Retry-After: ' . $RATE_WINDOW);
+        echo 'Rate limit exceeded';
+        exit;
+    }
     // If client sent If-None-Match or If-Modified-Since, respond 304 if matches
     if(!empty($meta['etag']) && isset($_SERVER['HTTP_IF_NONE_MATCH'])){
         $ifnm = trim($_SERVER['HTTP_IF_NONE_MATCH'], ' "');
@@ -76,6 +117,13 @@ if(file_exists($cache_file) && file_exists($meta_file)){
         }
     }
     if($age <= $CACHE_TTL){
+        // Serve WebP if client accepts it and we have a WebP cached
+        $accept = $_SERVER['HTTP_ACCEPT'] ?? '';
+        if(strpos($accept, 'image/webp') !== false && !empty($meta['webp']) && file_exists($webp_file)){
+            $meta['content_type'] = 'image/webp';
+            $meta['etag'] = $meta['webp']['etag'] ?? $meta['etag'];
+            send_cached($meta, $webp_file);
+        }
         send_cached($meta, $cache_file);
     }
     // else fallthrough to refresh cache
@@ -137,6 +185,43 @@ $meta = [
     'etag' => $etag,
     'ttl' => $CACHE_TTL
 ];
+// Optionally generate WebP variant for smaller size
+$webp_generated = false;
+if(strpos($content_type, 'image/') === 0){
+    // Prefer Imagick if available
+    if(class_exists('Imagick')){
+        try{
+            $im = new Imagick();
+            $im->readImageBlob($response);
+            $im->setImageFormat('webp');
+            if(method_exists($im, 'setImageCompressionQuality')) $im->setImageCompressionQuality(80);
+            $webp_blob = $im->getImageBlob();
+            if($webp_blob){
+                $tmpw = $webp_file . '.tmp';
+                file_put_contents($tmpw, $webp_blob);
+                rename($tmpw, $webp_file);
+                $meta['webp'] = ['etag' => sha1($webp_blob), 'size' => strlen($webp_blob)];
+                $webp_generated = true;
+            }
+        } catch(Exception $e){ /* ignore webp generation errors */ }
+    } elseif(function_exists('imagecreatefromstring') && function_exists('imagewebp')){
+        $img = @imagecreatefromstring($response);
+        if($img !== false){
+            ob_start();
+            imagewebp($img, NULL, 80);
+            $webp_blob = ob_get_clean();
+            imagedestroy($img);
+            if($webp_blob){
+                $tmpw = $webp_file . '.tmp';
+                file_put_contents($tmpw, $webp_blob);
+                rename($tmpw, $webp_file);
+                $meta['webp'] = ['etag' => sha1($webp_blob), 'size' => strlen($webp_blob)];
+                $webp_generated = true;
+            }
+        }
+    }
+}
+
 file_put_contents($meta_file, json_encode($meta));
 
 // Serve
