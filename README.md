@@ -117,3 +117,56 @@ rsync -av --delete --exclude 'tools/' --exclude '.github/' --exclude '.venv/' --
 - **Checks finales antes de poner en producción:** probar en staging HTTPS, validar `thumb.php` (ETag/Cache-Control), comprobar que `sitemap.xml` contiene las URLs canónicas y que `robots.txt` apunta correctamente al `sitemap`.
 
 — Equipo de mantenimiento — Óptica Torres
+
+**Estructura recomendada para despliegue (subir al hosting)**
+
+Aquí tienes un árbol visual con los archivos y carpetas que deberías subir al servidor de producción. Excluye las carpetas y archivos marcados en la sección de exclusión.
+
+```text
+/ (webroot)
+├─ index.html
+├─ starter-page.html
+├─ robots.txt
+├─ sitemap.xml
+├─ .htaccess            # si usas Apache (CSP, rewrites, HSTS)
+├─ assets/
+│  ├─ css/
+│  │  ├─ variables.css
+│  │  ├─ main.css
+│  │  └─ (otros *.css necesarios)
+│  ├─ js/
+│  │  ├─ main.js
+│  │  └─ (vendor scripts: bootstrap, aos, glightbox...)
+│  ├─ img/
+│  │  └─ (imágenes públicas, optimizadas WebP/servir webp cuando sea posible)
+│  └─ fonts/
+├─ vendor/              # dependencias frontend (bootstrap, fontawesome...)
+├─ especialistas/
+│  ├─ gioconda-torres/
+│  │  ├─ index.html
+│  │  ├─ css/
+│  │  │  └─ gioconda-page.css
+│  │  ├─ js/
+│  │  └─ thumb.php       # proxy de miniaturas (si lo usas en producción)
+│  └─ (otras páginas de especialistas si las hay)
+└─ README.md
+
+# Archivos/ carpetas que NO subir
+# (mantener fuera del servidor público o del deploy)
+/.venv/                # entorno virtual local
+/.github/              # CI workflows (no necesarios en producción)
+/tools/                # scripts de validación / desarrollo
+/stubs/                # stubs de editor
+/scss/                 # fuentes de estilo preprocesadas
+/assets/scripts/       # herramientas helper / generadores (no runtime)
+/thumb_cache/          # caché de miniaturas (debe ubicarse fuera del webroot)
+*.log                  # logs locales
+*.tmp
+
+```
+
+Notas:
+- Si `thumb.php` está activado, configura la caché fuera del webroot (p.ej. `/var/cache/thumbs` o `C:\laragon\thumb_cache`) y no subas esa carpeta al repo ni al hosting público.
+- Ajusta permisos de `assets/img/` y de la carpeta de caché para que el proceso web pueda leer/escribir según sea necesario.
+- Antes de apuntar el dominio a producción: probar en staging con HTTPS y validar sitemap/robots.
+
