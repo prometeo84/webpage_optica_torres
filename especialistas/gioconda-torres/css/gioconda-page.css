@@ -92,3 +92,17 @@
     padding-bottom: 3rem;
   }
 }
+
+/* Ensure scroll-top on specialist page matches main site's accent and contrast */
+.scroll-top {
+  background-color: var(--accent-color, #17b8a6);
+  color: var(--contrast-color, #ffffff);
+}
+.scroll-top i {
+  color: var(--contrast-color, #ffffff);
+}
+
+/* Make the experience number use the site's accent color */
+#experience-years {
+  color: var(--accent-color, #17b8a6);
+}
