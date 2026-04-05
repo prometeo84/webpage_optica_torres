@@ -5,7 +5,23 @@
 // Configuration
 $MAX_BYTES = 5 * 1024 * 1024; // 5 MB max
 $CACHE_TTL = 60 * 60 * 24; // 1 day
-$CACHE_DIR = __DIR__ . '/.thumb_cache';
+// Prefer cache outside webroot when possible (one level above webroot)
+$default_cache_inside = __DIR__ . '/.thumb_cache';
+$webroot = dirname(__DIR__, 2); // .../www
+$outside = dirname($webroot); // parent of www (e.g., c:\laragon)
+$preferred_outside = $outside . '/thumb_cache';
+
+$CACHE_DIR = $preferred_outside;
+// Fallback to project-local cache if outside is not writable
+if(!is_dir($CACHE_DIR) && !@mkdir($CACHE_DIR, 0755, true)){
+    $CACHE_DIR = $default_cache_inside;
+    if(!is_dir($CACHE_DIR)) @mkdir($CACHE_DIR, 0755, true);
+    // Protect cache dir with .htaccess if inside webroot
+    $htaccess = $CACHE_DIR . '/.htaccess';
+    if(!file_exists($htaccess)){
+        @file_put_contents($htaccess, "Order allow,deny\nDeny from all\n");
+    }
+}
 
 if(!isset($_GET['id']) || empty($_GET['id'])){
     http_response_code(400);
