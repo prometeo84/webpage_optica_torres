@@ -99,9 +99,17 @@ Sí. Añadir un badge discreto con enlace al validador aporta credibilidad técn
 ---
 
 ## 📌 Estado actual y acciones realizadas ahora
+## 📌 Estado actual y cambios recientes
 
-- Ejecuté `tools/site_checks.py` → `tools/site_checks_report.json` refleja 0 errores/warnings en las páginas principales.
-- README actualizado con este detalle.
+Actualizado: 2026-04-05
+
+- `tools/site_checks.py` ejecutado: `tools/site_checks_report.json` muestra 0 errores/warnings en las páginas principales.
+- Añadido workflow de CI: `.github/workflows/w3c-validate.yml`.
+- Añadido helper en `tools/check_w3c_exit.py` para comprobar el resultado de W3C en CI.
+- Badges añadidos en el sitio: W3C (logo), GitHub Actions y badges de shields.io en `index.html` y en `especialistas/gioconda-torres/index.html`.
+- El footer principal (`index.html`) fue actualizado: el correo se convirtió en enlace `mailto`.
+- En la sección `Especialistas` la tarjeta de la Dra. Gioconda ahora enlaza a `especialistas/gioconda-torres/index.html`.
+- Todos los cambios del sitio fueron commiteados y pusheados al repositorio (`origin/main`).
 
 ---
 
