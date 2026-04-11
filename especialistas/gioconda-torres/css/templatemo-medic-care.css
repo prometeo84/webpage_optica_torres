@@ -7,43 +7,53 @@ https://templatemo.com/tm-566-medic-care
 */
 
 /*---------------------------------------
-  CUSTOM PROPERTIES ( VARIABLES )             
+  CUSTOM PROPERTIES ( VARIABLES )
 -----------------------------------------*/
 :root {
-  --white-color:                  #FFFFFF;
-  --primary-color:                #247cff;
-  --section-bg-color:             #F9F9F9;
-  --dark-color:                   #000000;
-  --title-color:                  #565758;
-  --p-color:                      #717275;
-  --border-color:                 #eaeaea;
+  --white-color: #ffffff;
+  --primary-color: #247cff;
+  --section-bg-color: #f9f9f9;
+  --dark-color: #000000;
+  --title-color: #565758;
+  --p-color: #717275;
+  --border-color: #eaeaea;
 
-  --body-font-family:             'Open Sans', sans-serif;
+  --body-font-family: var(--default-font);
 
-  --h1-font-size:                 48px;
-  --h2-font-size:                 36px;
-  --h3-font-size:                 32px;
-  --h4-font-size:                 28px;
-  --h5-font-size:                 24px;
-  --h6-font-size:                 22px;
-  --p-font-size:                  18px;
-  --menu-font-size:               16px;
+  --h1-font-size: 48px;
+  --h2-font-size: 36px;
+  --h3-font-size: 32px;
+  --h4-font-size: 28px;
+  --h5-font-size: 24px;
+  --h6-font-size: 22px;
+  --p-font-size: 18px;
+  --menu-font-size: 16px;
 
-  --font-weight-light:            300;
-  --font-weight-normal:           400;
-  --font-weight-semibold:         600;
-  --font-weight-bold:             700;
+  /* Use global heading font (set in site's variables.css) */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--heading-font);
+  }
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 }
 
 body {
-    background: var(--white-color);
-    font-family: var(--body-font-family);    
-    position: relative;
-    padding-top: 94px;
+  background: var(--white-color);
+  font-family: var(--body-font-family);
+  position: relative;
+  padding-top: 94px;
 }
 
 /*---------------------------------------
-  TYPOGRAPHY               
+  TYPOGRAPHY
 -----------------------------------------*/
 
 h2,
@@ -101,7 +111,7 @@ p {
   letter-spacing: 0.5px;
 }
 
-a, 
+a,
 button {
   touch-action: manipulation;
   transition: all 0.3s;
@@ -122,7 +132,7 @@ a:hover {
 }
 
 /*---------------------------------------
-  CUSTOM LINK               
+  CUSTOM LINK
 -----------------------------------------*/
 .custom-link {
   display: inline-block;
@@ -137,9 +147,9 @@ a:hover {
   box-sizing: border-box;
   margin: 0;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   overflow: hidden;
   border-radius: 0;
   text-transform: uppercase;
@@ -168,7 +178,7 @@ strong {
 }
 
 /*---------------------------------------
-  LIST GROUP               
+  LIST GROUP
 -----------------------------------------*/
 .list-group-item {
   background-color: transparent;
@@ -187,7 +197,7 @@ strong {
 }
 
 /*---------------------------------------
-  ANIMATED TEXT              
+  ANIMATED TEXT
 -----------------------------------------*/
 .animated {
   position: relative;
@@ -215,11 +225,11 @@ strong {
   animation: BottomTotop 6s linear infinite 0s;
 }
 
-.animated-item:nth-child(2n+2) {
+.animated-item:nth-child(2n + 2) {
   animation-delay: 2s;
 }
 
-.animated-item:nth-child(3n+3) {
+.animated-item:nth-child(3n + 3) {
   animation-delay: 4s;
 }
 
@@ -252,9 +262,9 @@ strong {
 }
 
 /*---------------------------------------
-  HERO              
+  HERO
 -----------------------------------------*/
-.hero {  
+.hero {
   padding-top: 0rem;
 }
 
@@ -279,7 +289,7 @@ strong {
 }
 
 /*---------------------------------------
-  FEATURED              
+  FEATURED
 -----------------------------------------*/
 .featured-circle {
   border-radius: 100%;
@@ -304,7 +314,7 @@ strong {
 }
 
 /*---------------------------------------
-  NAVIGATION              
+  NAVIGATION
 -----------------------------------------*/
 .navbar {
   padding-top: 20px;
@@ -340,8 +350,8 @@ strong {
   padding-bottom: 15px;
 }
 
-.navbar-nav .nav-item.active .nav-link, 
-.nav-link:focus, 
+.navbar-nav .nav-item.active .nav-link,
+.nav-link:focus,
 .nav-link:hover {
   color: var(--dark-color);
 }
@@ -371,9 +381,16 @@ strong {
 
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before,
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-  transition: top 300ms 50ms ease, -webkit-transform 300ms 350ms ease;
-  transition: top 300ms 50ms ease, transform 300ms 350ms ease;
-  transition: top 300ms 50ms ease, transform 300ms 350ms ease, -webkit-transform 300ms 350ms ease;
+  transition:
+    top 300ms 50ms ease,
+    -webkit-transform 300ms 350ms ease;
+  transition:
+    top 300ms 50ms ease,
+    transform 300ms 350ms ease;
+  transition:
+    top 300ms 50ms ease,
+    transform 300ms 350ms ease,
+    -webkit-transform 300ms 350ms ease;
   top: 0;
 }
 
@@ -396,16 +413,23 @@ strong {
 
 .navbar-toggler .navbar-toggler-icon:before,
 .navbar-toggler .navbar-toggler-icon:after {
-  transition: top 300ms 350ms ease, -webkit-transform 300ms 50ms ease;
-  transition: top 300ms 350ms ease, transform 300ms 50ms ease;
-  transition: top 300ms 350ms ease, transform 300ms 50ms ease, -webkit-transform 300ms 50ms ease;
+  transition:
+    top 300ms 350ms ease,
+    -webkit-transform 300ms 50ms ease;
+  transition:
+    top 300ms 350ms ease,
+    transform 300ms 50ms ease;
+  transition:
+    top 300ms 350ms ease,
+    transform 300ms 50ms ease,
+    -webkit-transform 300ms 50ms ease;
   position: absolute;
   right: 0;
   left: 0;
   background: var(--dark-color);
   width: 30px;
   height: 2px;
-  content: '';
+  content: "";
 }
 
 .navbar-toggler .navbar-toggler-icon:before {
@@ -417,7 +441,7 @@ strong {
 }
 
 /*---------------------------------------
-  TIMELINE               
+  TIMELINE
 -----------------------------------------*/
 .timeline,
 .timeline-nodes {
@@ -428,10 +452,10 @@ strong {
   flex-direction: row-reverse;
 }
 
-.timeline h3, 
+.timeline h3,
 .timeline p {
   padding: 10px 30px;
-} 
+}
 
 .timeline h3 {
   background: var(--dark-color);
@@ -464,7 +488,7 @@ strong {
 .timeline-nodes:nth-child(odd) .timeline-date {
   text-align: left;
 }
- 
+
 .timeline-nodes:nth-child(even) .timeline-date {
   text-align: right;
 }
@@ -512,9 +536,9 @@ strong {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   background: var(--white-color);
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   z-index: 1;
 }
 
@@ -612,7 +636,7 @@ strong {
 }
 
 /*---------------------------------------
-  REVIEWS               
+  REVIEWS
 -----------------------------------------*/
 .reviews-thumb {
   margin-bottom: 0;
@@ -699,7 +723,7 @@ strong {
 }
 
 /*---------------------------------------
-  BOOKING FORM            
+  BOOKING FORM
 -----------------------------------------*/
 
 .booking-form .form-control {
@@ -729,7 +753,7 @@ strong {
 }
 
 /*---------------------------------------
-  FOOTER              
+  FOOTER
 -----------------------------------------*/
 .site-footer {
   background: var(--section-bg-color);
@@ -740,7 +764,7 @@ strong {
 }
 
 /*---------------------------------------
-  SOCIAL ICON               
+  SOCIAL ICON
 -----------------------------------------*/
 .social-icon {
   margin: 0;
@@ -772,7 +796,7 @@ strong {
 }
 
 /*---------------------------------------
-  RESPONSIVE STYLES               
+  RESPONSIVE STYLES
 -----------------------------------------*/
 @media screen and (min-width: 1600px) {
   .hero .container {

@@ -55,6 +55,25 @@ h6 {
   font-family: var(--heading-font);
 }
 
+/* Tipografía: ajustes de escala, peso y familia para mejor coincidencia visual */
+h1,
+h2,
+h3 {
+  font-family: "Raleway", var(--default-font);
+}
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
 /* Pulsating Play Button
 ------------------------------*/
 .pulsating-play-btn {
@@ -336,7 +355,7 @@ h6 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3.25rem;
+  font-size: 2.5rem;
   line-height: 1;
   color: var(--contrast-color, #fff);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
@@ -495,10 +514,21 @@ h6 {
 }
 
 .header .logo h1 {
-  font-size: 30px;
+  font-size: 39px;
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);
+}
+
+/* Ajustes específicos para la sección de servicios: tamaño y peso más acorde */
+.services .service-item h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.services .service-item p,
+.services .service-item li {
+  font-size: 0.95rem;
+  font-weight: 400;
 }
 
 /* Gioconda hero image: reduce to 50% and center */
@@ -1371,19 +1401,25 @@ section,
 .about .content ul {
   list-style: none;
   padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
 }
-
 .about .content ul li {
   display: flex;
   align-items: flex-start;
-  margin-top: 40px;
+  margin: 0.5rem;
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 220px;
+  box-sizing: border-box;
 }
 
 .about .content ul i {
   flex-shrink: 0;
-  font-size: 48px;
+  font-size: 42px;
   color: var(--accent-color);
-  margin-right: 20px;
+  margin-right: 16px;
 }
 
 .about .content ul h5 {
@@ -1395,7 +1431,34 @@ section,
   font-size: 15px;
 }
 
+@media (max-width: 768px) {
+  .about .content ul {
+    gap: 1rem;
+  }
+  .about .content ul li {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .about .content ul i {
+    font-size: 36px;
+    margin-right: 12px;
+  }
+}
+
 .about .content p:last-child {
+  margin-bottom: 0;
+}
+
+/* About features (full-width row) - usar color principal del tema para iconos */
+.about-features .fa-solid,
+.about-features .fas,
+.about-features .bi {
+  color: var(--primary) !important;
+}
+.about-features h4 {
+  margin: 0 0 6px 0;
+}
+.about-features p {
   margin-bottom: 0;
 }
 
@@ -2100,11 +2163,11 @@ section,
 */
 .contact-line {
   display: flex;
-  gap: 2rem;
+  gap: 1.25rem;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  flex-wrap: wrap; /* allow wrapping to prevent horizontal overflow */
+  overflow-x: visible;
   padding: 8px 6px;
 }
 
@@ -2112,7 +2175,8 @@ section,
   display: flex;
   gap: 0.75rem;
   align-items: center;
-  min-width: 200px;
+  flex: 1 1 260px; /* allow items to shrink/grow; sensible base */
+  min-width: 160px;
 }
 
 .contact-line .info-inline i {
@@ -2142,8 +2206,20 @@ section,
 /* En pantallas pequeñas permitir que los ítems se envuelvan si es necesario */
 @media (max-width: 576px) {
   .contact-line {
-    gap: 1rem;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+}
+
+/* On small/medium screens make each info block take full width to stack cleanly */
+@media (max-width: 768px) {
+  .contact-line .info-inline {
+    flex: 1 1 100%;
+    min-width: 0;
     justify-content: flex-start;
+  }
+  .contact-line .info-inline h3 {
+    margin-bottom: 4px;
   }
 }
 
