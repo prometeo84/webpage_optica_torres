@@ -24,10 +24,10 @@
       } catch(e) { /* no-op */ }
     })();
   </script>
-  <!-- Fonts -->
+  <!-- Fonts: Inter (body) + Raleway (titles) -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files (CDN con fallback local) -->
   <link href="assets/css/variables.css" rel="stylesheet">
@@ -239,40 +239,61 @@
       <div class="container">
         <div class="row gy-4 gx-5">
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="Sobre nosotros" loading="lazy">
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+            <img src="https://res.cloudinary.com/dtilkaup4/image/upload/v1775922986/Gemini_Generated_Image_2w0ftc2w0ftc2w0f_zi0woc.png" alt="Sobre nosotros" class="img-fluid" loading="lazy">
           </div>
           <div class="col-lg-6 content text-justify" data-aos="fade-up" data-aos-delay="100">
             <h3>Sobre nosotros</h3>
             <p>
               Centro Oftalmológico Óptica Torres es un centro especializado de atención visual personalizada cuya matriz está ubicada en la Av. Colón y Ulloa que combina tecnología de punta con atención humana. Nuestro equipo conformado de oftalmólogos y optómetras realiza diagnósticos precisos y planes de tratamiento personalizados para cada paciente. Ofrecemos lentes de primera con las mejores marcas, servicio de Contactología, seguimiento postventa y citas ágiles. Se realiza valoración oftalmológica completa para tratamiento clínico y quirúrgico de la mano de los últimos avances según sea el caso.
             </p>
-            <ul>
-              <li>
-                <i class="fa-solid fa-vial-circle-check"></i>
-                <div>
-                  <h4>Exámenes avanzados</h4>
-                  <p>Refracción computarizada, tonometría digital, interpretación de exámenes OCT, Pentacam y pruebas especializadas para un diagnóstico preciso y completo con un plan de tratamiento individualizado.</p>
-                </div>
-              </li>
-              <li>
-                <i class="fa-solid fa-pump-medical"></i>
-                <div>
-                  <h4>Tratamientos y procedimientos</h4>
-                  <p>Procedimientos oftalmológicos, ópticos, contactología (adaptación de lentes de contacto esclerales – blandos) y optométricos con opciones de corrección adaptadas a cada caso, incluyendo intervenciones y seguimiento clínico cuando procede.</p>
-                </div>
-              </li>
-              <li>
-                <i class="fa-solid fa-heart-circle-xmark"></i>
-                <div>
-                  <h4>Seguimiento y garantía</h4>
-                  <p>Control oftalmológico posterior a tratamientos médicos y quirúrgicos. Entrega de lentes adaptados a las necesidades de cada usuario con ajustes y garantía; acompañamiento hasta la recuperación y satisfacción del paciente.</p>
-                </div>
-              </li>
-            </ul>
+            <h3>Misión</h3>
+            <p>
+              Mantener una posición de amplio liderazgo en el campo de la visión, excediendo las expectativas de nuestros clientes con la cooperación de nuestro sobresaliente y calificado personal, capacitado y motivado a través de la continua superación. Buscamos excelencia en la calidad de nuestros servicios y productos de salud visual.
+            </p>
+            <h3>Visión</h3>
+            <p>
+              Ser líderes en el mercado brindando un servicio de calidad, mediante una amplia red de puntos de venta. Óptica Torres es una empresa orientada al servicio al cliente, satisfaciendo sus necesidades y expectativas.
+            </p>
+            <!-- Features removed from column and re-rendered full-width below -->
           </div>
         </div>
       </div>
+
+      <!-- Full-width features row (three columns) -->
+      <div class="container-fluid about-features py-4">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-4">
+              <div class="d-flex align-items-start gap-3">
+                <i class="fa-solid fa-vial-circle-check fa-2x text-primary"></i>
+                <div>
+                  <h3>Exámenes avanzados</h3>
+                  <p class="mb-0">Refracción computarizada, tonometría digital, interpretación de exámenes OCT, Pentacam y pruebas especializadas para un diagnóstico preciso y completo con un plan de tratamiento individualizado.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="d-flex align-items-start gap-3">
+                <i class="fa-solid fa-pump-medical fa-2x text-primary"></i>
+                <div>
+                  <h3>Tratamientos y procedimientos</h3>
+                  <p class="mb-0">Procedimientos oftalmológicos, ópticos, contactología (adaptación de lentes de contacto esclerales – blandos) y optométricos con opciones de corrección adaptadas a cada caso, incluyendo intervenciones y seguimiento clínico cuando procede.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="d-flex align-items-start gap-3">
+                <i class="fa-solid fa-heart-circle-xmark fa-2x text-primary"></i>
+                <div>
+                  <h3>Seguimiento y garantía</h3>
+                  <p class="mb-0">Control oftalmológico posterior a tratamientos médicos y quirúrgicos. Entrega de lentes adaptados a las necesidades de cada usuario con ajustes y garantía; acompañamiento hasta la recuperación y satisfacción del paciente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section><!-- /About Section -->
 
     <!-- Stats Section -->
