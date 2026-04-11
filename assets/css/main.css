@@ -1545,6 +1545,14 @@ section,
   text-align: left;
 }
 
+/* Ensure service cards and their list items use the site's body font consistently */
+.services .service-item,
+.services .service-item ul,
+.services .service-item li,
+.services .service-item p {
+  font-family: var(--default-font) !important;
+}
+
 /*--------------------------------------------------------------
 # Appointment Section
 --------------------------------------------------------------*/
