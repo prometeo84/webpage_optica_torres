@@ -1525,8 +1525,13 @@ section,
   background: color-mix(in srgb, var(--background-color), transparent 70%);
 }
 
-.services .service-item:hover h3,
-.services .service-item:hover p {
+.services .service-item:hover {
+  color: var(--contrast-color);
+}
+
+/* Ensure lists inside hovered service items also switch to contrast color */
+.services .service-item:hover ul,
+.services .service-item:hover li {
   color: var(--contrast-color);
 }
 
