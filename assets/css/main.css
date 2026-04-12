@@ -28,7 +28,7 @@
   text-align: left;
   padding: 1rem 1rem;
   background: #ffffff;
-  color: var(--accent-color);
+  color: #000; /* Toggle text black */
   font-weight: 600;
   border: 0;
   display: flex;
@@ -54,10 +54,11 @@
   font-weight: 700;
 }
 
-/* Make the section heading match the site's accent color */
+/* Section headings in Más información should be black */
 #more-info h2,
-#more-info #more-info-title {
-  color: var(--accent-color);
+#more-info #more-info-title,
+#more-info h3 {
+  color: #000;
 }
 #more-info .panel {
   overflow: hidden;
