@@ -1,0 +1,10 @@
+# Node, Python, OS ignores as needed
+.env
+.venv/
+
+# Ignore tools and logs added during local validation
+logs.zip
+logs/
+tools/vnu.jar
+tools/index-vnu.json
+tools/gioconda-vnu.json
