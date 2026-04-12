@@ -58,11 +58,11 @@
               @media (min-width:768px){ #whatsapp-float {display:none!important} }
             </style>
 
-            <div id="whatsapp-float" aria-hidden="true">
+            <div id="whatsapp-float">
               <button id="whatsapp-toggle" aria-expanded="false" aria-controls="whatsapp-menu" aria-label="Contactar por WhatsApp">
                 <i class="bi bi-whatsapp" aria-hidden="true" style="font-size:1.2rem;color:#fff"></i>
               </button>
-              <div id="whatsapp-menu" role="menu" aria-hidden="true">
+              <div id="whatsapp-menu" role="menu">
                 <button type="button" class="whatsapp-number" data-phone="593987403851">098 740 3851</button>
                 <button type="button" class="whatsapp-number" data-phone="593958707479">095 870 7479</button>
               </div>
@@ -85,11 +85,11 @@
 
                 function updateVisibility(){
                   var sc = window.scrollY || document.documentElement.scrollTop;
-                  if(sc > 200){ floatEl.classList.add('visible'); floatEl.setAttribute('aria-hidden','false'); }
-                  else { floatEl.classList.remove('visible'); floatEl.setAttribute('aria-hidden','true'); closeMenu(); }
+                  if(sc > 200){ floatEl.classList.add('visible'); }
+                    else { floatEl.classList.remove('visible'); closeMenu(); }
                 }
-                function openMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); }
-                function closeMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); }
+                function openMenu(){ menu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); }
+                function closeMenu(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
                 toggle.addEventListener('click', function(e){ e.stopPropagation(); if(menu.classList.contains('open')) closeMenu(); else openMenu(); });
                 document.addEventListener('click', function(e){ if(!floatEl.contains(e.target)) closeMenu(); });
                 document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
@@ -273,7 +273,7 @@
 
             <div class="site-footer-bottom text-center py-3 bg-light"><div class="container"><p class="mb-0">© Copyright <span id="current-year"></span> Óptica Torres Todos los derechos reservados</p></div></div>
 
-            <div class="site-badges text-center py-2" aria-hidden="true">
+            <div class="site-badges text-center py-2">
               <a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer" title="Valid HTML">
                 <img src="https://img.shields.io/badge/HTML5-Valid-brightgreen?logo=html5&style=flat-square" alt="HTML5 valid (shields)">
               </a>

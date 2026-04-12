@@ -903,14 +903,14 @@
     <button id="whatsapp-toggle" class="whatsapp-fab" aria-expanded="false" aria-controls="whatsapp-menu" aria-label="Contactar por WhatsApp">
       <i class="bi bi-whatsapp" aria-hidden="true" style="font-size:1.4rem"></i>
     </button>
-    <div id="whatsapp-menu" class="whatsapp-menu" role="menu" aria-hidden="true">
+    <div id="whatsapp-menu" class="whatsapp-menu" role="menu">
       <button type="button" class="whatsapp-number" data-phone="593987403851">098 740 3851</button>
       <button type="button" class="whatsapp-number" data-phone="593958707479">095 870 7479</button>
     </div>
   </div>
 
   <!-- Popup reutilizable para desktop: aparece junto al enlace clicado -->
-  <div id="whatsapp-popup" class="whatsapp-popup d-none" role="menu" aria-hidden="true">
+  <div id="whatsapp-popup" class="whatsapp-popup d-none" role="menu">
     <button type="button" class="whatsapp-popup-cancel">Cancelar</button>
   </div>
 
@@ -937,8 +937,8 @@
           if(sc > showAfter){ floatEl.classList.add('visible'); }
           else { floatEl.classList.remove('visible'); closeMobileMenu(); }
         }
-        function openMobileMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); }
-        function closeMobileMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); }
+        function openMobileMenu(){ menu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); }
+        function closeMobileMenu(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
         toggle.addEventListener('click', function(e){ e.stopPropagation(); if(menu.classList.contains('open')) closeMobileMenu(); else openMobileMenu(); });
         document.addEventListener('click', function(e){ if(!floatEl.contains(e.target)) closeMobileMenu(); });
         document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMobileMenu(); });
