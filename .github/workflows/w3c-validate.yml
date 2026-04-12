@@ -2,6 +2,39 @@ name: W3C Validate
 
 on:
   push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  validate:
+    name: Validate HTML with validator.nu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run validator (via container)
+        run: |
+          mkdir -p results
+          echo "Validating index.html"
+          docker run --rm -v ${{ github.workspace }}:/workspace ghcr.io/validator/validator:latest --format json /workspace/index.html > results/index.json || true
+          echo "Validating especialistas/gioconda-torres/index.html"
+          docker run --rm -v ${{ github.workspace }}:/workspace ghcr.io/validator/validator:latest --format json /workspace/especialistas/gioconda-torres/index.html > results/gioconda-index.json || true
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: w3c-results
+          path: results
+
+      - name: Show short summary
+        run: |
+          echo "Index errors:"; jq '.messages | map(select(.type=="error")) | length' results/index.json || true
+          echo "Gioconda errors:"; jq '.messages | map(select(.type=="error")) | length' results/gioconda-index.json || true
+name: W3C Validate
+
+on:
+  push:
     branches: [main]
   workflow_dispatch:
 
