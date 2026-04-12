@@ -1,0 +1,8 @@
+2026-04-12T08:21:45.4820000Z Job is waiting for a hosted runner to come online.
+2026-04-12T08:21:45.4650000Z Requested labels: ubuntu-latest
+2026-04-12T08:21:45.4650000Z Job defined at: prometeo84/webpage_optica_torres/.github/workflows/w3c-validate.yml@refs/heads/main
+2026-04-12T08:21:45.4650000Z Waiting for a runner to pick up this job...
+2026-04-12T08:21:45.4650000Z Evaluating validate.if
+2026-04-12T08:21:45.4650000Z Evaluating: success()
+2026-04-12T08:21:45.4650000Z Result: true
+2026-04-12T08:21:45.4830000Z Job is about to start running on the hosted runner: GitHub Actions 1000000059

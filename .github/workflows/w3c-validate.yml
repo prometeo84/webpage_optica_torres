@@ -2,7 +2,7 @@ name: W3C Validate
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch: {}
 
 jobs:

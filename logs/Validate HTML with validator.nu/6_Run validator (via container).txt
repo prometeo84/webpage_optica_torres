@@ -1,0 +1,44 @@
+﻿2026-04-12T08:21:55.2195037Z ##[group]Run mkdir -p results
+2026-04-12T08:21:55.2195385Z [36;1mmkdir -p results[0m
+2026-04-12T08:21:55.2195615Z [36;1mecho "Validating index.html"[0m
+2026-04-12T08:21:55.2196562Z [36;1mdocker run --rm -v /home/runner/work/webpage_optica_torres/webpage_optica_torres:/workspace ghcr.io/validator/validator:latest --format json /workspace/index.html > results/index.json || true[0m
+2026-04-12T08:21:55.2197453Z [36;1mecho "Validating especialistas/gioconda-torres/index.html"[0m
+2026-04-12T08:21:55.2198373Z [36;1mdocker run --rm -v /home/runner/work/webpage_optica_torres/webpage_optica_torres:/workspace ghcr.io/validator/validator:latest --format json /workspace/especialistas/gioconda-torres/index.html > results/gioconda-index.json || true[0m
+2026-04-12T08:21:55.2212355Z shell: /usr/bin/bash -e {0}
+2026-04-12T08:21:55.2212603Z env:
+2026-04-12T08:21:55.2212852Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:55.2213252Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib/pkgconfig
+2026-04-12T08:21:55.2213674Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:55.2214013Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:55.2214338Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:55.2214683Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib
+2026-04-12T08:21:55.2214969Z ##[endgroup]
+2026-04-12T08:21:55.2545927Z Validating index.html
+2026-04-12T08:21:55.7686653Z Unable to find image 'ghcr.io/validator/validator:latest' locally
+2026-04-12T08:21:56.5874105Z latest: Pulling from validator/validator
+2026-04-12T08:21:56.7617260Z eadb1213354a: Pulling fs layer
+2026-04-12T08:21:56.7618001Z 6c7484153c06: Pulling fs layer
+2026-04-12T08:21:56.7618623Z 217015efa9df: Pulling fs layer
+2026-04-12T08:21:56.7618979Z 09f8c7e1a36b: Pulling fs layer
+2026-04-12T08:21:56.7619534Z 09f8c7e1a36b: Waiting
+2026-04-12T08:21:57.3007403Z eadb1213354a: Verifying Checksum
+2026-04-12T08:21:57.3008075Z eadb1213354a: Download complete
+2026-04-12T08:21:57.3942674Z 217015efa9df: Verifying Checksum
+2026-04-12T08:21:57.3943542Z 217015efa9df: Download complete
+2026-04-12T08:21:57.5223144Z 6c7484153c06: Verifying Checksum
+2026-04-12T08:21:57.5223602Z 6c7484153c06: Download complete
+2026-04-12T08:21:57.5663992Z 09f8c7e1a36b: Verifying Checksum
+2026-04-12T08:21:57.5664867Z 09f8c7e1a36b: Download complete
+2026-04-12T08:21:58.1408364Z eadb1213354a: Pull complete
+2026-04-12T08:22:00.5033933Z 6c7484153c06: Pull complete
+2026-04-12T08:22:00.6458999Z 217015efa9df: Pull complete
+2026-04-12T08:22:00.6562845Z 09f8c7e1a36b: Pull complete
+2026-04-12T08:22:00.6600227Z Digest: sha256:307e8d153d1fdc2563fcb2d16d51f8981db1e4d0f01f36b755f37689e30f8621
+2026-04-12T08:22:00.6612331Z Status: Downloaded newer image for ghcr.io/validator/validator:latest
+2026-04-12T08:22:00.7580048Z docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "--format": executable file not found in $PATH
+2026-04-12T08:22:00.7581848Z 
+2026-04-12T08:22:00.7582409Z Run 'docker run --help' for more information
+2026-04-12T08:22:00.7588304Z Validating especialistas/gioconda-torres/index.html
+2026-04-12T08:22:00.8600212Z docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "--format": executable file not found in $PATH
+2026-04-12T08:22:00.8606932Z 
+2026-04-12T08:22:00.8607372Z Run 'docker run --help' for more information

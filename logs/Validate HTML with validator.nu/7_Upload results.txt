@@ -1,0 +1,27 @@
+﻿2026-04-12T08:22:00.8668714Z ##[group]Run actions/upload-artifact@v4
+2026-04-12T08:22:00.8668995Z with:
+2026-04-12T08:22:00.8669177Z   name: w3c-results
+2026-04-12T08:22:00.8669367Z   path: results
+2026-04-12T08:22:00.8669545Z   if-no-files-found: warn
+2026-04-12T08:22:00.8669754Z   compression-level: 6
+2026-04-12T08:22:00.8669944Z   overwrite: false
+2026-04-12T08:22:00.8670136Z   include-hidden-files: false
+2026-04-12T08:22:00.8670336Z env:
+2026-04-12T08:22:00.8670562Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:00.8670925Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib/pkgconfig
+2026-04-12T08:22:00.8671291Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:00.8671626Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:00.8671952Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:00.8672288Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib
+2026-04-12T08:22:00.8672562Z ##[endgroup]
+2026-04-12T08:22:01.0718383Z With the provided path, there will be 2 files uploaded
+2026-04-12T08:22:01.0722523Z Artifact name is valid!
+2026-04-12T08:22:01.0723581Z Root directory input is valid!
+2026-04-12T08:22:01.2992137Z Beginning upload of artifact content to blob storage
+2026-04-12T08:22:01.5387246Z Uploaded bytes 268
+2026-04-12T08:22:01.6028164Z Finished uploading artifact content to blob storage!
+2026-04-12T08:22:01.6028821Z SHA256 digest of uploaded artifact zip is da08481e840bcdccb1ebc3f6993b8bf7eff1abff61b456f584f78f47639efdde
+2026-04-12T08:22:01.6029494Z Finalizing artifact upload
+2026-04-12T08:22:01.7157463Z Artifact w3c-results.zip successfully finalized. Artifact ID 6391361276
+2026-04-12T08:22:01.7158438Z Artifact w3c-results has been successfully uploaded! Final size is 268 bytes. Artifact ID is 6391361276
+2026-04-12T08:22:01.7165658Z Artifact download URL: https://github.com/prometeo84/webpage_optica_torres/actions/runs/24302348364/artifacts/6391361276

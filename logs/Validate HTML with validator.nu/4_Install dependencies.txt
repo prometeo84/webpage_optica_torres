@@ -1,0 +1,12 @@
+﻿2026-04-12T08:21:50.6087854Z ##[group]Run python -m pip install --upgrade pip
+2026-04-12T08:21:50.6089224Z [36;1mpython -m pip install --upgrade pip[0m
+2026-04-12T08:21:50.6190751Z shell: /usr/bin/bash -e {0}
+2026-04-12T08:21:50.6191884Z env:
+2026-04-12T08:21:50.6192890Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:50.6194414Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib/pkgconfig
+2026-04-12T08:21:50.6195916Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:50.6197496Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:50.6198880Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:50.6200319Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib
+2026-04-12T08:21:50.6201479Z ##[endgroup]
+2026-04-12T08:21:53.7800715Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (26.0.1)

@@ -1,0 +1,145 @@
+﻿2026-04-12T08:21:54.1241386Z ##[group]Run python tools/site_checks.py
+2026-04-12T08:21:54.1241768Z [36;1mpython tools/site_checks.py[0m
+2026-04-12T08:21:54.1255311Z shell: /usr/bin/bash -e {0}
+2026-04-12T08:21:54.1255563Z env:
+2026-04-12T08:21:54.1255814Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:54.1256194Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib/pkgconfig
+2026-04-12T08:21:54.1256805Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:54.1257140Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:54.1257483Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:21:54.1257830Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib
+2026-04-12T08:21:54.1258139Z ##[endgroup]
+2026-04-12T08:21:55.2060400Z {
+2026-04-12T08:21:55.2061458Z   "pages": {
+2026-04-12T08:21:55.2064339Z     "especialistas/gioconda-torres/index.html": {
+2026-04-12T08:21:55.2065528Z       "w3c": {
+2026-04-12T08:21:55.2066109Z         "total_messages": 3,
+2026-04-12T08:21:55.2066945Z         "errors": 3,
+2026-04-12T08:21:55.2067439Z         "warnings": 0,
+2026-04-12T08:21:55.2067908Z         "sample": [
+2026-04-12T08:21:55.2068343Z           {
+2026-04-12T08:21:55.2068773Z             "type": "error",
+2026-04-12T08:21:55.2069253Z             "lastLine": 106,
+2026-04-12T08:21:55.2069745Z             "lastColumn": 17,
+2026-04-12T08:21:55.2070248Z             "firstColumn": 11,
+2026-04-12T08:21:55.2071154Z             "message": "Stray end tag “head”.",
+2026-04-12T08:21:55.2071764Z             "extract": "          </head>\n\n    ",
+2026-04-12T08:21:55.2072325Z             "hiliteStart": 10,
+2026-04-12T08:21:55.2072833Z             "hiliteLength": 7
+2026-04-12T08:21:55.2073384Z           },
+2026-04-12T08:21:55.2073884Z           {
+2026-04-12T08:21:55.2074374Z             "type": "error",
+2026-04-12T08:21:55.2074923Z             "lastLine": 108,
+2026-04-12T08:21:55.2075465Z             "lastColumn": 25,
+2026-04-12T08:21:55.2076685Z             "firstColumn": 11,
+2026-04-12T08:21:55.2080590Z             "message": "Start tag “body” seen but an element of the same type was already open.",
+2026-04-12T08:21:55.2082652Z             "extract": "          <body id=\"top\">\n     ",
+2026-04-12T08:21:55.2083521Z             "hiliteStart": 10,
+2026-04-12T08:21:55.2084355Z             "hiliteLength": 15
+2026-04-12T08:21:55.2084944Z           },
+2026-04-12T08:21:55.2085642Z           {
+2026-04-12T08:21:55.2086232Z             "type": "error",
+2026-04-12T08:21:55.2087008Z             "lastLine": 108,
+2026-04-12T08:21:55.2087667Z             "lastColumn": 25,
+2026-04-12T08:21:55.2088229Z             "firstColumn": 11,
+2026-04-12T08:21:55.2089246Z             "subType": "fatal",
+2026-04-12T08:21:55.2090075Z             "message": "Cannot recover after last error. Any further errors will be ignored.",
+2026-04-12T08:21:55.2091030Z             "extract": "          <body id=\"top\">\n     ",
+2026-04-12T08:21:55.2091747Z             "hiliteStart": 10,
+2026-04-12T08:21:55.2092354Z             "hiliteLength": 15
+2026-04-12T08:21:55.2092835Z           }
+2026-04-12T08:21:55.2093243Z         ]
+2026-04-12T08:21:55.2093707Z       },
+2026-04-12T08:21:55.2094188Z       "images_missing_alt": [],
+2026-04-12T08:21:55.2094784Z       "links_blank_no_rel": []
+2026-04-12T08:21:55.2095390Z     },
+2026-04-12T08:21:55.2095934Z     "index.html": {
+2026-04-12T08:21:55.2096661Z       "w3c": {
+2026-04-12T08:21:55.2097218Z         "total_messages": 7,
+2026-04-12T08:21:55.2097767Z         "errors": 6,
+2026-04-12T08:21:55.2098275Z         "warnings": 1,
+2026-04-12T08:21:55.2098804Z         "sample": [
+2026-04-12T08:21:55.2099300Z           {
+2026-04-12T08:21:55.2099753Z             "type": "info",
+2026-04-12T08:21:55.2100279Z             "lastLine": 478,
+2026-04-12T08:21:55.2100791Z             "lastColumn": 220,
+2026-04-12T08:21:55.2101324Z             "firstColumn": 23,
+2026-04-12T08:21:55.2101881Z             "subType": "warning",
+2026-04-12T08:21:55.2102992Z             "message": "The “frameborder” attribute on the “iframe” element is obsolete. Use CSS instead.",
+2026-04-12T08:21:55.2105716Z             "extract": "          <iframe data-lazy data-src=\"https://www.dailymotion.com/embed/video/xa4d5hm\" src=\"about:blank\" title=\"Video Boutique Óptica Torres\" frameborder=\"0\" allowfullscreen allow=\"autoplay; encrypted-media\"></ifra",
+2026-04-12T08:21:55.2107775Z             "hiliteStart": 10,
+2026-04-12T08:21:55.2108324Z             "hiliteLength": 198
+2026-04-12T08:21:55.2108848Z           },
+2026-04-12T08:21:55.2109306Z           {
+2026-04-12T08:21:55.2109746Z             "type": "error",
+2026-04-12T08:21:55.2110269Z             "lastLine": 684,
+2026-04-12T08:21:55.2110841Z             "lastColumn": 15,
+2026-04-12T08:21:55.2111597Z             "firstColumn": 9,
+2026-04-12T08:21:55.2113093Z             "message": "Element “style” not allowed as child of element “div” in this context. (Suppressing further errors from this subtree.)",
+2026-04-12T08:21:55.2114582Z             "extract": "\n\n        <style>\n     ",
+2026-04-12T08:21:55.2115297Z             "hiliteStart": 10,
+2026-04-12T08:21:55.2115886Z             "hiliteLength": 7
+2026-04-12T08:21:55.2116595Z           },
+2026-04-12T08:21:55.2117056Z           {
+2026-04-12T08:21:55.2117601Z             "type": "error",
+2026-04-12T08:21:55.2118221Z             "lastLine": 687,
+2026-04-12T08:21:55.2118763Z             "lastColumn": 120,
+2026-04-12T08:21:55.2119739Z             "message": "CSS: “border-bottom”: “var(--accent-color)” is not a “color” value.",
+2026-04-12T08:21:55.2120653Z             "extract": "transparent 85%); }\n          ",
+2026-04-12T08:21:55.2121309Z             "hiliteStart": 15,
+2026-04-12T08:21:55.2121900Z             "hiliteLength": 1
+2026-04-12T08:21:55.2122506Z           },
+2026-04-12T08:21:55.2123013Z           {
+2026-04-12T08:21:55.2123501Z             "type": "error",
+2026-04-12T08:21:55.2124070Z             "lastLine": 702,
+2026-04-12T08:21:55.2124658Z             "lastColumn": 122,
+2026-04-12T08:21:55.2125612Z             "message": "CSS: “outline”: “var(--accent-color)” is not a “color” value.",
+2026-04-12T08:21:55.2126619Z             "extract": "transparent 60%); outline-offs",
+2026-04-12T08:21:55.2127273Z             "hiliteStart": 15,
+2026-04-12T08:21:55.2127819Z             "hiliteLength": 1
+2026-04-12T08:21:55.2128359Z           },
+2026-04-12T08:21:55.2128817Z           {
+2026-04-12T08:21:55.2129291Z             "type": "error",
+2026-04-12T08:21:55.2129849Z             "lastLine": 703,
+2026-04-12T08:21:55.2130392Z             "lastColumn": 242,
+2026-04-12T08:21:55.2131359Z             "message": "CSS: “background”: “var(--accent-color)” is not a “color” value.",
+2026-04-12T08:21:55.2132382Z             "extract": "transparent 85%); color: var(-",
+2026-04-12T08:21:55.2133338Z             "hiliteStart": 15,
+2026-04-12T08:21:55.2133821Z             "hiliteLength": 1
+2026-04-12T08:21:55.2134326Z           },
+2026-04-12T08:21:55.2134756Z           {
+2026-04-12T08:21:55.2135204Z             "type": "error",
+2026-04-12T08:21:55.2135722Z             "lastLine": 705,
+2026-04-12T08:21:55.2136226Z             "lastColumn": 123,
+2026-04-12T08:21:55.2137129Z             "message": "CSS: “color”: “var(--text-dark)” is not a “color” value.",
+2026-04-12T08:21:55.2137870Z             "extract": "transparent 15%); line-height:",
+2026-04-12T08:21:55.2138503Z             "hiliteStart": 15,
+2026-04-12T08:21:55.2139064Z             "hiliteLength": 1
+2026-04-12T08:21:55.2139540Z           },
+2026-04-12T08:21:55.2139993Z           {
+2026-04-12T08:21:55.2140435Z             "type": "error",
+2026-04-12T08:21:55.2141003Z             "lastLine": 220,
+2026-04-12T08:21:55.2141553Z             "lastColumn": 18,
+2026-04-12T08:21:55.2142118Z             "firstColumn": 15,
+2026-04-12T08:21:55.2143270Z             "message": "The heading “h3” (with computed level 3) follows the heading “h1” (with computed level 1), skipping 1 heading level.",
+2026-04-12T08:21:55.2144811Z             "extract": "          <h3>Por qu",
+2026-04-12T08:21:55.2145334Z             "hiliteStart": 10,
+2026-04-12T08:21:55.2145972Z             "hiliteLength": 4
+2026-04-12T08:21:55.2146282Z           }
+2026-04-12T08:21:55.2146677Z         ]
+2026-04-12T08:21:55.2146952Z       },
+2026-04-12T08:21:55.2147236Z       "images_missing_alt": [],
+2026-04-12T08:21:55.2147465Z       "links_blank_no_rel": []
+2026-04-12T08:21:55.2147681Z     },
+2026-04-12T08:21:55.2147860Z     "starter-page.html": {
+2026-04-12T08:21:55.2148073Z       "w3c": {
+2026-04-12T08:21:55.2148261Z         "total_messages": 0,
+2026-04-12T08:21:55.2148476Z         "errors": 0,
+2026-04-12T08:21:55.2148667Z         "warnings": 0,
+2026-04-12T08:21:55.2148867Z         "sample": []
+2026-04-12T08:21:55.2149048Z       },
+2026-04-12T08:21:55.2149230Z       "images_missing_alt": [],
+2026-04-12T08:21:55.2149456Z       "links_blank_no_rel": []
+2026-04-12T08:21:55.2149655Z     }
+2026-04-12T08:21:55.2149815Z   }
+2026-04-12T08:21:55.2149972Z }

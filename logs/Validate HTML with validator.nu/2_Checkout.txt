@@ -1,0 +1,72 @@
+﻿2026-04-12T08:21:48.8918322Z ##[group]Run actions/checkout@v4
+2026-04-12T08:21:48.8919290Z with:
+2026-04-12T08:21:48.8919779Z   repository: prometeo84/webpage_optica_torres
+2026-04-12T08:21:48.8920764Z   token: ***
+2026-04-12T08:21:48.8921226Z   ssh-strict: true
+2026-04-12T08:21:48.8921668Z   ssh-user: git
+2026-04-12T08:21:48.8922128Z   persist-credentials: true
+2026-04-12T08:21:48.8922596Z   clean: true
+2026-04-12T08:21:48.8923096Z   sparse-checkout-cone-mode: true
+2026-04-12T08:21:48.8923616Z   fetch-depth: 1
+2026-04-12T08:21:48.8924071Z   fetch-tags: false
+2026-04-12T08:21:48.8924559Z   show-progress: true
+2026-04-12T08:21:48.8924970Z   lfs: false
+2026-04-12T08:21:48.8925368Z   submodules: false
+2026-04-12T08:21:48.8925812Z   set-safe-directory: true
+2026-04-12T08:21:48.8926695Z ##[endgroup]
+2026-04-12T08:21:48.9975279Z Syncing repository: prometeo84/webpage_optica_torres
+2026-04-12T08:21:48.9977391Z ##[group]Getting Git version info
+2026-04-12T08:21:48.9978295Z Working directory is '/home/runner/work/webpage_optica_torres/webpage_optica_torres'
+2026-04-12T08:21:48.9979502Z [command]/usr/bin/git version
+2026-04-12T08:21:49.0005693Z git version 2.53.0
+2026-04-12T08:21:49.0029328Z ##[endgroup]
+2026-04-12T08:21:49.0042545Z Temporarily overriding HOME='/home/runner/work/_temp/f42ce237-2ee6-4226-97b8-fb9c2620753d' before making global git config changes
+2026-04-12T08:21:49.0055645Z Adding repository directory to the temporary git global config as a safe directory
+2026-04-12T08:21:49.0057724Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/webpage_optica_torres/webpage_optica_torres
+2026-04-12T08:21:49.0087999Z Deleting the contents of '/home/runner/work/webpage_optica_torres/webpage_optica_torres'
+2026-04-12T08:21:49.0091401Z ##[group]Initializing the repository
+2026-04-12T08:21:49.0096603Z [command]/usr/bin/git init /home/runner/work/webpage_optica_torres/webpage_optica_torres
+2026-04-12T08:21:49.0161273Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-04-12T08:21:49.0163558Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-04-12T08:21:49.0165204Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-04-12T08:21:49.0166651Z hint: call:
+2026-04-12T08:21:49.0167501Z hint:
+2026-04-12T08:21:49.0168267Z hint: 	git config --global init.defaultBranch <name>
+2026-04-12T08:21:49.0169184Z hint:
+2026-04-12T08:21:49.0170104Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-04-12T08:21:49.0171739Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-04-12T08:21:49.0172893Z hint:
+2026-04-12T08:21:49.0173471Z hint: 	git branch -m <name>
+2026-04-12T08:21:49.0174165Z hint:
+2026-04-12T08:21:49.0175105Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-04-12T08:21:49.0177417Z Initialized empty Git repository in /home/runner/work/webpage_optica_torres/webpage_optica_torres/.git/
+2026-04-12T08:21:49.0180526Z [command]/usr/bin/git remote add origin https://github.com/prometeo84/webpage_optica_torres
+2026-04-12T08:21:49.0203294Z ##[endgroup]
+2026-04-12T08:21:49.0204504Z ##[group]Disabling automatic garbage collection
+2026-04-12T08:21:49.0208431Z [command]/usr/bin/git config --local gc.auto 0
+2026-04-12T08:21:49.0233023Z ##[endgroup]
+2026-04-12T08:21:49.0233691Z ##[group]Setting up auth
+2026-04-12T08:21:49.0239468Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-04-12T08:21:49.0265013Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-04-12T08:21:49.0495380Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-04-12T08:21:49.0519012Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-04-12T08:21:49.0695518Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-04-12T08:21:49.0722940Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-04-12T08:21:49.0909893Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-04-12T08:21:49.0939026Z ##[endgroup]
+2026-04-12T08:21:49.0940279Z ##[group]Fetching the repository
+2026-04-12T08:21:49.0948644Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +f22629160edfc4e7b5f1d8c18f7ac79c748cc2a0:refs/remotes/origin/main
+2026-04-12T08:21:50.2682116Z From https://github.com/prometeo84/webpage_optica_torres
+2026-04-12T08:21:50.2684418Z  * [new ref]         f22629160edfc4e7b5f1d8c18f7ac79c748cc2a0 -> origin/main
+2026-04-12T08:21:50.2706539Z ##[endgroup]
+2026-04-12T08:21:50.2708227Z ##[group]Determining the checkout info
+2026-04-12T08:21:50.2709786Z ##[endgroup]
+2026-04-12T08:21:50.2712690Z [command]/usr/bin/git sparse-checkout disable
+2026-04-12T08:21:50.2744601Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-04-12T08:21:50.2767446Z ##[group]Checking out the ref
+2026-04-12T08:21:50.2771558Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-04-12T08:21:50.3313166Z Switched to a new branch 'main'
+2026-04-12T08:21:50.3315660Z branch 'main' set up to track 'origin/main'.
+2026-04-12T08:21:50.3325020Z ##[endgroup]
+2026-04-12T08:21:50.3363068Z [command]/usr/bin/git log -1 --format=%H
+2026-04-12T08:21:50.3385398Z f22629160edfc4e7b5f1d8c18f7ac79c748cc2a0

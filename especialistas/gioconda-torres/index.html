@@ -58,15 +58,7 @@
               @media (min-width:768px){ #whatsapp-float {display:none!important} }
             </style>
 
-            <div id="whatsapp-float">
-              <button id="whatsapp-toggle" aria-expanded="false" aria-controls="whatsapp-menu" aria-label="Contactar por WhatsApp">
-                <i class="bi bi-whatsapp" aria-hidden="true" style="font-size:1.2rem;color:#fff"></i>
-              </button>
-              <div id="whatsapp-menu" role="menu">
-                <button type="button" class="whatsapp-number" data-phone="593987403851">098 740 3851</button>
-                <button type="button" class="whatsapp-number" data-phone="593958707479">095 870 7479</button>
-              </div>
-            </div>
+            <!-- WhatsApp markup moved to body to satisfy W3C (interactive content must not be inside head) -->
 
             <script>
               (function(){
@@ -106,6 +98,17 @@
           </head>
 
           <body id="top">
+            <!-- Floating WhatsApp (móvil) moved from head -->
+            <div id="whatsapp-float" class="whatsapp-float d-md-none">
+              <button id="whatsapp-toggle" class="whatsapp-fab" aria-expanded="false" aria-controls="whatsapp-menu" aria-label="Contactar por WhatsApp">
+                <i class="bi bi-whatsapp" aria-hidden="true" style="font-size:1.2rem;color:#fff"></i>
+              </button>
+              <div id="whatsapp-menu" class="whatsapp-menu" role="menu">
+                <button type="button" class="whatsapp-number" data-phone="593987403851">098 740 3851</button>
+                <button type="button" class="whatsapp-number" data-phone="593958707479">095 870 7479</button>
+              </div>
+            </div>
+
             <main>
               <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
                 <div class="container">

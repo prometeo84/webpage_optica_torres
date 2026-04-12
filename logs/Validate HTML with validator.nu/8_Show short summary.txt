@@ -1,0 +1,14 @@
+﻿2026-04-12T08:22:01.7232820Z ##[group]Run echo "Index errors:"; jq '.messages | map(select(.type=="error")) | length' results/index.json || true
+2026-04-12T08:22:01.7233647Z [36;1mecho "Index errors:"; jq '.messages | map(select(.type=="error")) | length' results/index.json || true[0m
+2026-04-12T08:22:01.7234286Z [36;1mecho "Gioconda errors:"; jq '.messages | map(select(.type=="error")) | length' results/gioconda-index.json || true[0m
+2026-04-12T08:22:01.7247549Z shell: /usr/bin/bash -e {0}
+2026-04-12T08:22:01.7247791Z env:
+2026-04-12T08:22:01.7248040Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:01.7248429Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib/pkgconfig
+2026-04-12T08:22:01.7248811Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:01.7249150Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:01.7249484Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:01.7249928Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib
+2026-04-12T08:22:01.7250270Z ##[endgroup]
+2026-04-12T08:22:01.7284547Z Index errors:
+2026-04-12T08:22:01.7307633Z Gioconda errors:

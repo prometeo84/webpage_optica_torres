@@ -1,0 +1,13 @@
+﻿2026-04-12T08:22:01.7349868Z ##[group]Run python tools/check_w3c_exit.py
+2026-04-12T08:22:01.7350203Z [36;1mpython tools/check_w3c_exit.py[0m
+2026-04-12T08:22:01.7362621Z shell: /usr/bin/bash -e {0}
+2026-04-12T08:22:01.7362860Z env:
+2026-04-12T08:22:01.7363108Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:01.7363491Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib/pkgconfig
+2026-04-12T08:22:01.7363877Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:01.7364215Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:01.7364541Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.3/x64
+2026-04-12T08:22:01.7364884Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.3/x64/lib
+2026-04-12T08:22:01.7365178Z ##[endgroup]
+2026-04-12T08:22:01.7561845Z W3C errors found: 9
+2026-04-12T08:22:01.7608863Z ##[error]Process completed with exit code 1.
