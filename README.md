@@ -150,3 +150,5 @@ Notas:
 - **Estado del repositorio:** Los cambios relacionados fueron committeados y pusheados al branch `main`.
 
 Si necesitas que incluya hashes de commit o los resultados JSON de validación aquí, dímelo y los añado (sin información sensible).
+
+- **Schema (JSON-LD):** Se añadió marcado estructurado (JSON‑LD) mejorado en `index.html` y en `especialistas/gioconda-torres/index.html` (agregado `@id`, `logo` y referencias entre entidad y sucursal) para facilitar la detección como negocio médico local por motores de búsqueda.
