@@ -13,6 +13,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Run site checks
+        run: |
+          python tools/site_checks.py
+
       - name: Run validator (via container)
         run: |
           mkdir -p results
@@ -33,33 +46,8 @@ jobs:
         run: |
           echo "Index errors:"; jq '.messages | map(select(.type=="error")) | length' results/index.json || true
           echo "Gioconda errors:"; jq '.messages | map(select(.type=="error")) | length' results/gioconda-index.json || true
-name: W3C Validate
-
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.x"
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-
-      - name: Run site checks
-        run: |
-          python tools/site_checks.py
 
       - name: Fail on W3C errors
+        if: always()
         run: |
           python tools/check_w3c_exit.py
