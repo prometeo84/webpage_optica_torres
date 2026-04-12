@@ -22,12 +22,14 @@ jobs:
           docker run --rm -v ${{ github.workspace }}:/workspace ghcr.io/validator/validator:latest --format json /workspace/especialistas/gioconda-torres/index.html > results/gioconda-index.json || true
 
       - name: Upload results
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: w3c-results
           path: results
 
       - name: Show short summary
+        if: always()
         run: |
           echo "Index errors:"; jq '.messages | map(select(.type=="error")) | length' results/index.json || true
           echo "Gioconda errors:"; jq '.messages | map(select(.type=="error")) | length' results/gioconda-index.json || true
