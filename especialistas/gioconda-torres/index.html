@@ -100,8 +100,9 @@
             <!-- WhatsApp markup moved to body to satisfy W3C (interactive content must not be inside head) -->
 
             <script>
-              (function(){
-                // Opción B: abrir WhatsApp con un único mensaje que enumera las opciones
+              /* Fix: el script estaba en <head> y los elementos aún no existían en el DOM.
+                 Se envuelve en DOMContentLoaded para que espere al markup del body. */
+              document.addEventListener('DOMContentLoaded', function(){
                 var menuText = 'Hola, deseo: 1) Solicitar una cita 2) Reagendar una cita 3) Hacer una consulta';
                 function waUrl(phone, text){
                   var encoded = encodeURIComponent(text || '');
@@ -110,29 +111,32 @@
                 }
 
                 var floatEl = document.getElementById('whatsapp-float');
-                var toggle = document.getElementById('whatsapp-toggle');
-                var menu = document.getElementById('whatsapp-menu');
+                var toggle  = document.getElementById('whatsapp-toggle');
+                var menu    = document.getElementById('whatsapp-menu');
                 if(!floatEl || !toggle || !menu) return;
 
                 function updateVisibility(){
                   var sc = window.scrollY || document.documentElement.scrollTop;
                   if(sc > 200){ floatEl.classList.add('visible'); }
-                    else { floatEl.classList.remove('visible'); closeMenu(); }
+                  else { floatEl.classList.remove('visible'); closeMenu(); }
                 }
                 function openMenu(){ menu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); }
                 function closeMenu(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+
                 toggle.addEventListener('click', function(e){ e.stopPropagation(); if(menu.classList.contains('open')) closeMenu(); else openMenu(); });
                 document.addEventListener('click', function(e){ if(!floatEl.contains(e.target)) closeMenu(); });
                 document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
 
-                menu.querySelectorAll('.whatsapp-number').forEach(function(btn){ btn.addEventListener('click', function(){
-                  var phone = btn.getAttribute('data-phone') || '593987403851';
-                  window.open(waUrl(phone, menuText), '_blank');
-                }); });
+                menu.querySelectorAll('.whatsapp-number').forEach(function(btn){
+                  btn.addEventListener('click', function(){
+                    var phone = btn.getAttribute('data-phone') || '593987403851';
+                    window.open(waUrl(phone, menuText), '_blank');
+                  });
+                });
 
                 window.addEventListener('scroll', updateVisibility, {passive:true});
                 updateVisibility();
-              })();
+              });
             </script>
           </head>
 
