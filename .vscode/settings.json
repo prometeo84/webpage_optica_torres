@@ -3,7 +3,34 @@
     "/^powershell -NoProfile -Command \"try \\{ \\$r = Invoke-WebRequest 'http://localhost/especialistas/gioconda-torres/' -UseBasicParsing -TimeoutSec 15 -ErrorAction Stop; Write-Output \\\\\"HTTP_STATUS: \\$\\(\\$r\\.StatusCode\\) \\$\\(\\$r\\.StatusDescription\\)\\\\\"; Write-Output '---Headers---'; \\$r\\.Headers\\.GetEnumerator\\(\\) \\| ForEach-Object \\{ Write-Output \\\\\"\\$\\(\\$_\\.Name\\): \\$\\(\\$_\\.Value\\)\\\\\" \\}; Write-Output '---Body \\(first 1200 chars\\)---'; if \\(\\$r\\.Content\\.Length -gt 1200\\) \\{ \\$r\\.Content\\.Substring\\(0,1200\\) \\} else \\{ \\$r\\.Content \\} \\} catch \\{ Write-Output \\\\\"ERROR: \\$\\(\\$_\\.Exception\\.Message\\)\\\\\"; if \\(\\$_\\.Exception\\.Response\\) \\{ Write-Output \\\\\"ResponseStatus: \\$\\(\\$_\\.Exception\\.Response\\.StatusCode\\.Value__\\)\\\\\" \\} \\}\"$/": {
       "approve": true,
       "matchCommandLine": true
-    }
+    },
+    "New-Object": true,
+    "Resolve-Path": true,
+    "/^powershell -NoProfile -Command \"Add-Type -AssemblyName System\\.IO\\.Compression\\.FileSystem; \\$zip='optica_torres_deploy\\.zip'; \\$z=\\[System\\.IO\\.Compression\\.ZipFile\\]::OpenRead\\(\\$zip\\); \\$z\\.Entries \\| Select-Object -First 40 \\| ForEach-Object \\{ \\$_\\.FullName \\} ; \\$z\\.Dispose\\(\\)\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^powershell -NoProfile -Command \"Add-Type -AssemblyName System\\.IO\\.Compression\\.FileSystem; \\$zip=Resolve-Path \\.\\\\optica_torres_deploy\\.zip; \\$z=\\[System\\.IO\\.Compression\\.ZipFile\\]::OpenRead\\(\\$zip\\); \\$z\\.Entries \\| ForEach-Object \\{ \\$_\\.FullName \\} ; \\$z\\.Dispose\\(\\)\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^powershell -NoProfile -Command \"if \\(Test-Path \\.\\\\tmp_unzip\\) \\{ Remove-Item \\.\\\\tmp_unzip -Recurse -Force \\}; Expand-Archive -Path \\.\\\\optica_torres_deploy\\.zip -DestinationPath \\.\\\\tmp_unzip -Force; Get-ChildItem \\.\\\\tmp_unzip -Recurse \\| Select-Object -First 200 \\| ForEach-Object \\{ \\$_\\.FullName \\}; \\(Get-ChildItem \\.\\\\tmp_unzip -Directory \\| ForEach-Object \\{ \\$_\\.Name \\}\\) -join ',';\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^powershell -NoProfile -Command \"Get-ChildItem -Force -Name \\| Out-String\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^powershell -NoProfile -Command \"Remove-Item \\.\\\\optica_torres_deploy\\.zip -ErrorAction SilentlyContinue; Compress-Archive -Path \\.\\\\index\\.html, \\.\\\\robots\\.txt, \\.\\\\sitemap\\.xml, \\.\\\\assets, \\.\\\\especialistas, \\.\\\\\\.htaccess -DestinationPath \\.\\\\optica_torres_deploy\\.zip -Force; if \\(Test-Path \\.\\\\optica_torres_deploy\\.zip\\) \\{ Expand-Archive -Path \\.\\\\optica_torres_deploy\\.zip -DestinationPath \\.\\\\tmp_unzip_check -Force; Write-Output 'ZIP_OK'; Get-ChildItem \\.\\\\tmp_unzip_check -Directory \\| ForEach-Object \\{ \\$_\\.Name \\} \\} else \\{ Write-Output 'ZIP_FAILED' \\}\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^powershell -NoProfile -Command \"Get-ChildItem \\.\\\\tmp_unzip_check -Directory \\| Select-Object -ExpandProperty Name; Test-Path \\.\\\\tmp_unzip_check\\\\assets; Get-ChildItem \\.\\\\tmp_unzip_check\\\\assets -Name \\| Select-Object -First 20\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "TryUpload": true
   },
   "files.associations": {
     "sitemap.xml": "xml"

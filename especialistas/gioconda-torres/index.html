@@ -9,13 +9,23 @@
             <title>Dra. Gioconda Torres — Óptica Torres</title>
 
             <!-- Font loading handled globally by site (Inter + Raleway) -->
-            <link href="css/bootstrap.min.css" rel="stylesheet">
+            <!-- Preload and apply bootstrap stylesheet to reduce render blocking -->
+            <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
+            <noscript><link href="css/bootstrap.min.css" rel="stylesheet"></noscript>
+            <!-- Preload bootstrap-icons font and apply font-display fix -->
+            <link rel="preload" href="../../assets/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
             <link href="css/bootstrap-icons.css" rel="stylesheet">
-            <link href="css/owl.carousel.min.css" rel="stylesheet">
-            <link href="css/owl.theme.default.min.css" rel="stylesheet">
-            <link href="css/templatemo-medic-care.css" rel="stylesheet">
+            <link href="css/owl.carousel.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+            <noscript><link href="css/owl.carousel.min.css" rel="stylesheet"></noscript>
+            <link href="css/owl.theme.default.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+            <noscript><link href="css/owl.theme.default.min.css" rel="stylesheet"></noscript>
+            <link href="css/templatemo-medic-care.css" rel="stylesheet" media="print" onload="this.media='all'">
+            <noscript><link href="css/templatemo-medic-care.css" rel="stylesheet"></noscript>
             <link href="../../assets/css/variables.css" rel="stylesheet">
-            <link href="css/gioconda-page.css" rel="stylesheet">
+            <!-- Page styles (defer non-critical) -->
+            <link href="css/gioconda-page.css" rel="stylesheet" media="print" onload="this.media='all'">
+            <noscript><link href="css/gioconda-page.css" rel="stylesheet"></noscript>
+            <link href="../../assets/css/font-display-fix.css" rel="stylesheet">
             <script type="application/ld+json">
             {
               "@context": "https://schema.org",
@@ -35,6 +45,64 @@
               ]
             }
             </script>
+            <!-- Floating WhatsApp (mobile) - local to this page: muestra dos números y abre wa.me con mensaje prellenado -->
+            <style>
+              /* Floating WhatsApp (mobile only) */
+              #whatsapp-float {position: fixed; left: 16px; bottom: 16px; z-index: 1100; display:flex; flex-direction:column; gap:8px; opacity:0; transform: translateY(12px); transition: opacity 240ms ease, transform 240ms ease; pointer-events:none}
+              #whatsapp-float.visible {opacity:1; transform: translateY(0); pointer-events:auto}
+              #whatsapp-toggle {width:48px; height:48px; border-radius:12px; background:#25D366; color:#fff; display:inline-flex; align-items:center; justify-content:center; border:0; box-shadow:0 6px 18px rgba(13,71,58,0.18)}
+              #whatsapp-menu {background:#fff; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.12); overflow:hidden; max-height:0; transition: max-height 220ms ease, opacity 200ms ease; opacity:0}
+              #whatsapp-menu.open {max-height:200px; opacity:1}
+              .whatsapp-number {display:block; width:100%; padding:10px 14px; text-align:left; border:0; background:transparent; font-weight:600; color:#111}
+              .whatsapp-number + .whatsapp-number {border-top:1px solid rgba(0,0,0,0.04)}
+              @media (min-width:768px){ #whatsapp-float {display:none!important} }
+            </style>
+
+            <div id="whatsapp-float" aria-hidden="true">
+              <button id="whatsapp-toggle" aria-expanded="false" aria-controls="whatsapp-menu" aria-label="Contactar por WhatsApp">
+                <i class="bi bi-whatsapp" aria-hidden="true" style="font-size:1.2rem;color:#fff"></i>
+              </button>
+              <div id="whatsapp-menu" role="menu" aria-hidden="true">
+                <button type="button" class="whatsapp-number" data-phone="593987403851">098 740 3851</button>
+                <button type="button" class="whatsapp-number" data-phone="593958707479">095 870 7479</button>
+              </div>
+            </div>
+
+            <script>
+              (function(){
+                // Opción B: abrir WhatsApp con un único mensaje que enumera las opciones
+                var menuText = 'Hola, deseo: 1) Solicitar una cita 2) Reagendar una cita 3) Hacer una consulta';
+                function waUrl(phone, text){
+                  var encoded = encodeURIComponent(text || '');
+                  phone = (phone || '').replace(/[^0-9+]/g, '');
+                  return 'https://wa.me/' + phone + '?text=' + encoded;
+                }
+
+                var floatEl = document.getElementById('whatsapp-float');
+                var toggle = document.getElementById('whatsapp-toggle');
+                var menu = document.getElementById('whatsapp-menu');
+                if(!floatEl || !toggle || !menu) return;
+
+                function updateVisibility(){
+                  var sc = window.scrollY || document.documentElement.scrollTop;
+                  if(sc > 200){ floatEl.classList.add('visible'); floatEl.setAttribute('aria-hidden','false'); }
+                  else { floatEl.classList.remove('visible'); floatEl.setAttribute('aria-hidden','true'); closeMenu(); }
+                }
+                function openMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); }
+                function closeMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); }
+                toggle.addEventListener('click', function(e){ e.stopPropagation(); if(menu.classList.contains('open')) closeMenu(); else openMenu(); });
+                document.addEventListener('click', function(e){ if(!floatEl.contains(e.target)) closeMenu(); });
+                document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+
+                menu.querySelectorAll('.whatsapp-number').forEach(function(btn){ btn.addEventListener('click', function(){
+                  var phone = btn.getAttribute('data-phone') || '593987403851';
+                  window.open(waUrl(phone, menuText), '_blank');
+                }); });
+
+                window.addEventListener('scroll', updateVisibility, {passive:true});
+                updateVisibility();
+              })();
+            </script>
           </head>
 
           <body id="top">
@@ -43,7 +111,7 @@
                 <div class="container">
                   <a class="navbar-brand mx-auto d-lg-none" href="#top">
                     Dra. Gioconda Torres
-                    <strong class="d-block">Oftalmología</strong>
+                    <strong class="d-block">Cirujana Oftalmóloga</strong>
                   </a>
 
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,14 +137,14 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-12">
-                      <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img src="/assets/img/gioconda/gallery/gioconda.jpg" class="img-fluid gioconda-photo" alt="Dra. Gioconda Torres">
+                          <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img src="/assets/img/gioconda/gallery/gioconda.jpg" class="img-fluid gioconda-photo" alt="Dra. Gioconda Torres" width="558" height="448" decoding="async" fetchpriority="high">
+                            </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </section>
@@ -186,9 +254,9 @@
                     <div class="d-flex justify-content-center align-items-center gap-2">
                         <i class="bi bi-whatsapp" aria-hidden="true" style="font-size:1.4rem;color:#25D366"></i>
                         <div>
-                            <a href="https://wa.me/593987403851" target="_blank" rel="noopener noreferrer">098 740 3851</a>
+                            <a href="https://wa.me/593987403851" class="whatsapp-link" data-phone="593987403851" target="_blank" rel="noopener noreferrer">098 740 3851</a>
                             <span class="mx-2">/</span>
-                            <a href="https://wa.me/593958707479" target="_blank" rel="noopener noreferrer">095 870 7479</a>
+                            <a href="https://wa.me/593958707479" class="whatsapp-link" data-phone="593958707479" target="_blank" rel="noopener noreferrer">095 870 7479</a>
                         </div>
                     </div>
                 </div></div></div>

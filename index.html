@@ -27,23 +27,41 @@
   <!-- Fonts: Inter (body) + Raleway (titles) -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://res.cloudinary.com" rel="preconnect" crossorigin>
+  <link rel="preload" href="assets/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files (CDN con fallback local) -->
   <link href="assets/css/variables.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- small override to ensure fonts use font-display:swap -->
+  <link href="assets/css/font-display-fix.css" rel="stylesheet">
+
+  <!-- Load non-crítico de CSS con técnica media=print + onload -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="assets/vendor/aos/aos.css" rel="stylesheet"></noscript>
+
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"></noscript>
+
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"></noscript>
+
+  <!-- FontAwesome (carga diferida, fonts ya preloaded) -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"></noscript>
 
   <!-- Main CSS File (cache-bust para forzar recarga) -->
   <link href="assets/css/main.css?v=20260331" rel="stylesheet">
-  <!-- Override específico: icono WhatsApp blanco -->
-  <link href="assets/css/whatsapp-override.css" rel="stylesheet">
+  <!-- Override específico: icono WhatsApp blanco (carga diferida) -->
+  <link href="assets/css/whatsapp-override.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="assets/css/whatsapp-override.css" rel="stylesheet"></noscript>
   <!-- Main SEO & Social tags -->
-  <meta name="description" content="Óptica Torres - Centro oftalmológico en Av. Colón. Servicios de optometría, lentes y atención especializada. Pide tu consulta en nuestras sucursales.">
+  <meta name="description" content="Óptica Torres — Centro oftalmológico en Quito (Av. Colón). Atención en oftalmología, optometría y contactología; diagnóstico avanzado (OCT, topografía), cirugía láser y lentes de primeras marcas. Reserva cita por WhatsApp o teléfono: 098 740 3851 / 095 870 7479.">
   <meta name="keywords" content="óptica, oftalmología, lentes, optometría, Óptica Torres, Av. Colón, sucursal">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://opticatorres.med.ec/">
@@ -55,16 +73,16 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Óptica Torres - Centro Oftalmológico">
-  <meta property="og:description" content="Óptica Torres - Centro oftalmológico en Av. Colón. Servicios de optometría, lentes y atención especializada.">
+  <meta property="og:title" content="Óptica Torres — Centro Oftalmológico en Quito">
+  <meta property="og:description" content="Atención en oftalmología, optometría y contactología. Diagnóstico por OCT, topografía, cirugía y venta de lentes. Reserva: 0987403851 / 0958707479.">
   <meta property="og:image" content="https://opticatorres.med.ec/assets/img/logo_optica.jpeg">
   <meta property="og:url" content="https://opticatorres.med.ec/">
   <meta property="og:locale" content="es_ES">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Óptica Torres - Centro Oftalmológico">
-  <meta name="twitter:description" content="Óptica Torres - Centro oftalmológico en Av. Colón. Servicios de optometría y lentes.">
+  <meta name="twitter:title" content="Óptica Torres — Centro Oftalmológico en Quito">
+  <meta name="twitter:description" content="Atención en oftalmología, optometría y contactología. Diagnóstico avanzado, cirugía y lentes. Reserva por WhatsApp: 0987403851.">
   <meta name="twitter:image" content="https://opticatorres.med.ec/assets/img/logo_optica.jpeg">
 
   <!-- JSON-LD LocalBusiness (usar dominio absoluto para SEO) -->
@@ -73,10 +91,16 @@
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "name": "Óptica Torres - Sucursal Av. Colón",
+    "description": "Centro oftalmológico en Quito que ofrece servicios de oftalmología clínica y quirúrgica, optometría, contactología, diagnóstico por OCT y topografía, y venta de lentes y armazones.",
     "image": "https://opticatorres.med.ec/assets/img/logo_optica.jpeg",
     "@id": "https://opticatorres.med.ec/",
     "url": "https://opticatorres.med.ec/",
     "telephone": "+593987403851",
+    "email": "contacto@opticatorres.med.ec",
+    "sameAs": [
+      "https://www.facebook.com/opticatorres.ec",
+      "https://www.instagram.com/opticastorres"
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Av. Cristobal Colón y Antonio de Ulloa, Edificio Fierro",
@@ -90,6 +114,15 @@
       "latitude": -0.1970077,
       "longitude": -78.498427
     },
+    "areaServed": "Quito, Ecuador",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+593987403851",
+        "contactType": "customer service",
+        "availableLanguage": ["es"]
+      }
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -116,14 +149,14 @@
         <div class="contact-info d-flex align-items-center">
           <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contacto@opticatorres.med.ec">contacto@opticatorres.med.ec</a></i>
           <div class="d-flex align-items-center ms-4">
-            <a href="https://wa.me/593987403851" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center whatsapp-link">
-              <i class="fab fa-whatsapp"></i>
-              <span class="ms-2">098 740 3851</span>
+            <a href="https://wa.me/593987403851" data-phone="593987403851" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center whatsapp-link">
+              <i class="fab fa-whatsapp d-none d-md-inline" aria-hidden="true"></i>
+              <span class="ms-2 d-none d-md-inline">098 740 3851</span>
             </a>
-            <span class="mx-2">/</span>
-            <a href="https://wa.me/593958707479" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center whatsapp-link">
-              <i class="fab fa-whatsapp"></i>
-              <span class="ms-2">095 870 7479</span>
+            <span class="mx-2 d-none d-md-inline">/</span>
+            <a href="https://wa.me/593958707479" data-phone="593958707479" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center whatsapp-link">
+              <i class="fab fa-whatsapp d-none d-md-inline" aria-hidden="true"></i>
+              <span class="ms-2 d-none d-md-inline">095 870 7479</span>
             </a>
           </div>
         </div>
@@ -178,7 +211,7 @@
       <img src="assets/img/hero-bg.jpg" alt="Imagen de cabecera" data-aos="fade-in" loading="eager">
       <div class="container position-relative">
         <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-          <h2>BIENVENIDOS AL CENTRO OFTALMOLÓGICO - ÓPTICA TORRES</h2>
+          <h1>BIENVENIDOS AL CENTRO OFTALMOLÓGICO - ÓPTICA TORRES</h1>
           <p>Profesionales en oftalmología, óptica, optometría con atención visual personalizada</p>
         </div><!-- End Welcome -->
         <div class="content row gy-4">
@@ -239,7 +272,7 @@
       <div class="container">
         <div class="row gy-4 gx-5">
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://res.cloudinary.com/dtilkaup4/image/upload/v1775922986/Gemini_Generated_Image_2w0ftc2w0ftc2w0f_zi0woc.png" alt="Sobre nosotros" class="img-fluid" loading="lazy">
+            <img src="https://res.cloudinary.com/dtilkaup4/image/upload/f_auto,q_auto,c_limit,w_800/v1775922986/Gemini_Generated_Image_2w0ftc2w0ftc2w0f_zi0woc.png" alt="Sobre nosotros" class="img-fluid" loading="lazy">
           </div>
           <div class="col-lg-6 content text-justify" data-aos="fade-up" data-aos-delay="100">
             <h3>Sobre nosotros</h3>
@@ -643,6 +676,131 @@
         <p class="mt-2"><a href="https://www.google.com/maps/place/Optica+Torres/@-0.1970077,-78.5168811,15z/data=!3m1!4b1!4m6!3m5!1s0x91d59a42026e9a4f:0xc3a83f31a551a36a!8m2!3d-0.1970077!4d-78.498427!16s%2Fg%2F11ckv6mldj?hl=en&entry=ttu&g_ep=EgoyMDI2MDMyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a></p>
       </div><!-- End Google Maps -->
 
+    <!-- Más Información (Acordeón) -->
+    <section id="more-info" class="more-info section" aria-labelledby="more-info-title" data-aos="fade-up" data-aos-delay="150">
+      <div class="container">
+        <h2 id="more-info-title">Más información sobre nuestros servicios en Quito</h2>
+
+        <style>
+          /* Acordeón limpio y accesible, adaptado a variables del tema */
+          #more-info .accordion { max-width: 900px; margin: 1.5rem auto; }
+          #more-info .accordion-item { border-bottom: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%); }
+          #more-info .accordion-toggle {
+            width: 100%;
+            text-align: left;
+            padding: 1rem 1rem;
+            background: var(--surface-color);
+            color: var(--text-dark);
+            font-weight: 600;
+            border: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+          }
+          #more-info .accordion-toggle:focus { outline: 3px solid color-mix(in srgb, var(--accent-color), transparent 60%); outline-offset: 2px; }
+          #more-info .accordion-toggle .icon { width: 28px; height: 28px; flex: 0 0 28px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; background: color-mix(in srgb, var(--accent-color), transparent 85%); color: var(--accent-color); font-weight:700 }
+          #more-info .panel { overflow: hidden; max-height: 0; transition: max-height 300ms ease; background: transparent; }
+          #more-info .panel-inner { padding: 0 1rem 1rem 1rem; color: color-mix(in srgb, var(--text-dark), transparent 15%); line-height:1.6 }
+          @media (max-width: 576px) {
+            #more-info .accordion-toggle { padding: 0.85rem; }
+            #more-info .panel-inner { padding: 0 0.85rem 0.85rem; }
+          }
+        </style>
+
+        <div class="accordion" role="region">
+
+          <article class="accordion-item">
+            <button class="accordion-toggle" aria-expanded="false" aria-controls="panel-1" id="toggle-1">
+              <span>Sobre nuestros servicios</span>
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div id="panel-1" class="panel" role="region" aria-labelledby="toggle-1" aria-hidden="true">
+              <div class="panel-inner">
+                <h3>Sobre nuestros servicios</h3>
+                <p>En Óptica Torres ofrecemos un catálogo de servicios centrados en la salud visual del paciente. Como una referencia de <strong>óptica en Quito</strong>, combinamos la <strong>optometría en Quito</strong> con tecnologías de diagnóstico y seguimiento clínico. Nuestro objetivo es ofrecer atención integral: evaluación, adaptación de lentes y consejos personalizados para mantener la <strong>salud visual en Ecuador</strong> a lo largo del tiempo.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="accordion-item">
+            <button class="accordion-toggle" aria-expanded="false" aria-controls="panel-2" id="toggle-2">
+              <span>Examen visual en Quito</span>
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div id="panel-2" class="panel" role="region" aria-labelledby="toggle-2" aria-hidden="true">
+              <div class="panel-inner">
+                <h3>Examen visual en Quito</h3>
+                <p>Nuestros exámenes visuales incluyen pruebas de agudeza, refracción, tonometría y evaluaciones específicas para lentes de contacto. Si buscas un <strong>examen visual en Quito</strong>, recibirás un diagnóstico claro y un plan de corrección o tratamiento. La coordinación entre el servicio clínico y el área de óptica permite que la entrega de <strong>lentes en Quito</strong> sea precisa y confortable.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="accordion-item">
+            <button class="accordion-toggle" aria-expanded="false" aria-controls="panel-3" id="toggle-3">
+              <span>Lentes y salud visual</span>
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div id="panel-3" class="panel" role="region" aria-labelledby="toggle-3" aria-hidden="true">
+              <div class="panel-inner">
+                <h3>Lentes y salud visual</h3>
+                <p>Contamos con selección de lentes oftálmicos y armazones de primeras marcas, adaptados a cada prescripción. Un buen par de <strong>lentes en Quito</strong> mejora la calidad de vida y reduce la fatiga visual. Además, proporcionamos orientación para cuidado ocular y prevención, reforzando la importancia de la <strong>salud visual Ecuador</strong> para toda la familia.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <script>
+          (function(){
+            const accordion = document.querySelector('#more-info .accordion');
+            if(!accordion) return;
+            const items = accordion.querySelectorAll('.accordion-item');
+            function closePanel(panel){
+              panel.style.maxHeight = null;
+              panel.setAttribute('aria-hidden', 'true');
+            }
+            function openPanel(panel){
+              const inner = panel.querySelector('.panel-inner');
+              // set to scrollHeight for smooth animation
+              panel.style.maxHeight = inner.scrollHeight + 'px';
+              panel.setAttribute('aria-hidden', 'false');
+            }
+            items.forEach(item => {
+              const btn = item.querySelector('.accordion-toggle');
+              const panel = item.querySelector('.panel');
+              const icon = btn.querySelector('.icon');
+              btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                // close all first
+                items.forEach(i=>{
+                  const b = i.querySelector('.accordion-toggle');
+                  const p = i.querySelector('.panel');
+                  const ic = b.querySelector('.icon');
+                  b.setAttribute('aria-expanded', 'false');
+                  ic.textContent = '+';
+                  closePanel(p);
+                });
+                if(!expanded){
+                  btn.setAttribute('aria-expanded', 'true');
+                  icon.textContent = '-';
+                  openPanel(panel);
+                }
+              });
+              // Keyboard support: Enter / Space
+              btn.addEventListener('keydown', (e)=>{
+                if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); btn.click(); }
+              });
+            });
+            // ensure panels collapse on load
+            items.forEach(i=> closePanel(i.querySelector('.panel')));
+          })();
+        </script>
+
+      </div>
+    </section><!-- End Más Información -->
+
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
@@ -659,12 +817,12 @@
               </div>
 
               <div class="info-inline d-flex align-items-center">
-                <i class="fab fa-whatsapp flex-shrink-0" aria-hidden="true"></i>
-                <div class="ms-2">
-                  <h3>Llámanos</h3>
-                  <p class="mb-0"><a href="https://wa.me/593987403851">098 740 3851</a> / <a href="https://wa.me/593958707479">095 870 7479</a></p>
+                  <i class="fab fa-whatsapp flex-shrink-0" aria-hidden="true"></i>
+                  <div class="ms-2">
+                    <h3>Llámanos</h3>
+                    <p class="mb-0"><a href="https://wa.me/593987403851" class="whatsapp-link" data-phone="593987403851">098 740 3851</a> / <a href="https://wa.me/593958707479" class="whatsapp-link" data-phone="593958707479">095 870 7479</a></p>
+                  </div>
                 </div>
-              </div>
 
               <div class="info-inline d-flex align-items-center">
                 <i class="bi bi-envelope flex-shrink-0" aria-hidden="true"></i>
@@ -738,6 +896,72 @@
         if (y) y.textContent = new Date().getFullYear();
       } catch(e) { console.warn('No se pudo actualizar el año dinámico', e); }
     });
+  </script>
+
+  <!-- WhatsApp flotante (móvil) y menú global para enlaces (desktop) -->
+  <div id="whatsapp-float" class="whatsapp-float d-md-none" aria-hidden="true">
+    <button id="whatsapp-toggle" class="whatsapp-fab" aria-expanded="false" aria-controls="whatsapp-menu" aria-label="Contactar por WhatsApp">
+      <i class="bi bi-whatsapp" aria-hidden="true" style="font-size:1.4rem"></i>
+    </button>
+    <div id="whatsapp-menu" class="whatsapp-menu" role="menu" aria-hidden="true">
+      <button type="button" class="whatsapp-number" data-phone="593987403851">098 740 3851</button>
+      <button type="button" class="whatsapp-number" data-phone="593958707479">095 870 7479</button>
+    </div>
+  </div>
+
+  <!-- Popup reutilizable para desktop: aparece junto al enlace clicado -->
+  <div id="whatsapp-popup" class="whatsapp-popup d-none" role="menu" aria-hidden="true">
+    <button type="button" class="whatsapp-popup-cancel">Cancelar</button>
+  </div>
+
+  <script>
+    (function(){
+      // Mensaje único simulado dentro de WhatsApp (Opción B):
+      var menuText = 'Hola, deseo: 1) Solicitar una cita 2) Reagendar una cita 3) Hacer una consulta';
+
+      // Helper: construir url wa.me
+      function waUrl(phone, text){
+        var encoded = encodeURIComponent(text || '');
+        phone = (phone || '').replace(/[^0-9+]/g, '');
+        return 'https://wa.me/' + phone + '?text=' + encoded;
+      }
+
+      // --- Mobile floating ---
+      var floatEl = document.getElementById('whatsapp-float');
+      var toggle = document.getElementById('whatsapp-toggle');
+      var menu = document.getElementById('whatsapp-menu');
+      if(floatEl && toggle && menu){
+        var showAfter = 200;
+        function updateVisibility(){
+          var sc = window.scrollY || document.documentElement.scrollTop;
+          if(sc > showAfter){ floatEl.classList.add('visible'); floatEl.setAttribute('aria-hidden','false'); }
+          else { floatEl.classList.remove('visible'); floatEl.setAttribute('aria-hidden','true'); closeMobileMenu(); }
+        }
+        function openMobileMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); }
+        function closeMobileMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); }
+        toggle.addEventListener('click', function(e){ e.stopPropagation(); if(menu.classList.contains('open')) closeMobileMenu(); else openMobileMenu(); });
+        document.addEventListener('click', function(e){ if(!floatEl.contains(e.target)) closeMobileMenu(); });
+        document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMobileMenu(); });
+        // opciones móvil: cada botón contiene un teléfono; abrir WhatsApp con el mensaje que simula el menú (Opción B)
+        menu.querySelectorAll('.whatsapp-number').forEach(function(btn){ btn.addEventListener('click', function(){
+          var phone = btn.getAttribute('data-phone') || '593987403851';
+          window.open(waUrl(phone, menuText), '_blank');
+        }); });
+        window.addEventListener('scroll', updateVisibility, {passive:true});
+        updateVisibility();
+      }
+
+      // --- Desktop links: abrir WhatsApp directamente con el texto que simula el menú (Opción B)
+      document.querySelectorAll('a.whatsapp-link').forEach(function(a){
+        a.addEventListener('click', function(e){
+          if(window.innerWidth < 768) return; // allow default on mobile
+          e.preventDefault();
+          var phone = a.getAttribute('data-phone') || (a.getAttribute('href')||'').replace(/https?:\/\/wa.me\//,'').split('?')[0];
+          window.open(waUrl(phone, menuText), '_blank');
+        });
+      });
+
+    })();
   </script>
 
 </body>

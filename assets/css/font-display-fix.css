@@ -1,0 +1,33 @@
+/* Override @font-face declarations to ensure font-display: swap for desktop */
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../vendor/fontawesome-free/webfonts/fa-brands-400.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../vendor/fontawesome-free/webfonts/fa-solid-900.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../vendor/fontawesome-free/webfonts/fa-regular-400.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: bootstrap-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../vendor/bootstrap-icons/fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6")
+    format("woff2");
+}
