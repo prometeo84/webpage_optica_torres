@@ -856,7 +856,7 @@
     <div class="container copyright text-center mt-4">
       <p>© Copyright <span id="current-year">2026</span> Óptica Torres Todos los derechos reservados</p>
       <div class="credits" aria-hidden="true"></div>
-      <div class="site-badges" aria-hidden="true">
+      <div class="site-badges">
         <a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer" title="Valid HTML">
           <img src="https://img.shields.io/badge/HTML5-Valid-brightgreen?logo=html5&style=flat-square" alt="HTML5 valid (shields)">
         </a>
@@ -899,7 +899,7 @@
   </script>
 
   <!-- WhatsApp flotante (móvil) y menú global para enlaces (desktop) -->
-  <div id="whatsapp-float" class="whatsapp-float d-md-none" aria-hidden="true">
+  <div id="whatsapp-float" class="whatsapp-float d-md-none">
     <button id="whatsapp-toggle" class="whatsapp-fab" aria-expanded="false" aria-controls="whatsapp-menu" aria-label="Contactar por WhatsApp">
       <i class="bi bi-whatsapp" aria-hidden="true" style="font-size:1.4rem"></i>
     </button>
@@ -934,8 +934,8 @@
         var showAfter = 200;
         function updateVisibility(){
           var sc = window.scrollY || document.documentElement.scrollTop;
-          if(sc > showAfter){ floatEl.classList.add('visible'); floatEl.setAttribute('aria-hidden','false'); }
-          else { floatEl.classList.remove('visible'); floatEl.setAttribute('aria-hidden','true'); closeMobileMenu(); }
+          if(sc > showAfter){ floatEl.classList.add('visible'); }
+          else { floatEl.classList.remove('visible'); closeMobileMenu(); }
         }
         function openMobileMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); }
         function closeMobileMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); }
