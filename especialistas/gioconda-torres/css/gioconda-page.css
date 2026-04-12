@@ -70,7 +70,7 @@
 }
 
 .video-placeholder:hover .vp-play {
-  color: var(--accent-color, #247cff);
+  color: #17b8a6;
 }
 
 #procedures {
@@ -101,7 +101,7 @@
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background-color: var(--accent-color, #17b8a6);
+  background-color: #17b8a6;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -126,5 +126,5 @@
 
 /* Make the experience number use the site's accent color */
 #experience-years {
-  color: var(--accent-color, #17b8a6);
+  color: #17b8a6;
 }
