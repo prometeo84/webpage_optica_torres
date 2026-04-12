@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 #more-info .accordion-toggle:focus {
-  outline: 3px solid rgba(23,184,166,0.18); /* focus tint matches site green */
+  outline: 3px solid rgba(23, 184, 166, 0.18); /* focus tint matches site green */
   outline-offset: 2px;
 }
 #more-info .accordion-toggle .icon {
@@ -59,7 +59,7 @@
   color: var(--accent-color);
 }
 #more-info .accordion-toggle[aria-expanded="true"] .icon {
-  background: rgba(23,184,166,0.12);
+  background: rgba(23, 184, 166, 0.12);
   color: var(--accent-color);
 }
 
