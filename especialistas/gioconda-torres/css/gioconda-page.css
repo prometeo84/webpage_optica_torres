@@ -116,7 +116,7 @@
   line-height: 0;
 }
 .scroll-top:hover {
-  background-color: rgba(23,184,166,0.8);
+  background-color: rgba(23, 184, 166, 0.8);
   color: var(--contrast-color);
 }
 .scroll-top.active {
