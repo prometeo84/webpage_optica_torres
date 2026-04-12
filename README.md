@@ -139,3 +139,14 @@ Notas:
 - Si `thumb.php` está activado, configura la caché fuera del webroot (p.ej. `/var/cache/thumbs` o `C:\laragon\thumb_cache`) y no subas esa carpeta al repo ni al hosting público.
 - Ajusta permisos de `assets/img/` y de la carpeta de caché para que el proceso web pueda leer/escribir según sea necesario.
 - Antes de apuntar el dominio a producción: probar en staging con HTTPS y validar sitemap/robots.
+
+---
+
+## 🔄 Actualización — 12 de abril de 2026
+
+- **Validaciones:** Se verificó la validación HTML (W3C) en páginas clave del sitio; los informes locales indican que no quedan errores críticos.
+- **Correcciones:** Se aplicó una corrección para que el botón flotante de WhatsApp funcione correctamente en vistas móviles (ajuste de inicialización JS al evento DOMContentLoaded).
+- **SEO y accesibilidad:** Se añadieron mejoras de metadatos y pequeños ajustes en la jerarquía de encabezados para mejorar la accesibilidad y señales SEO.
+- **Estado del repositorio:** Los cambios relacionados fueron committeados y pusheados al branch `main`.
+
+Si necesitas que incluya hashes de commit o los resultados JSON de validación aquí, dímelo y los añado (sin información sensible).
